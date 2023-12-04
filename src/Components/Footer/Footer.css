@@ -1,0 +1,51 @@
+.footer{
+    padding: 150px 9% 70px; 
+    line-height: 150%; /* 27px */
+    background: white;
+}
+.footer-left{
+    margin-top: 40px;
+    margin-right: 26%;
+}
+.footer-child1{
+    display: flex;
+    /* justify-content: space-between; */
+}
+.footer-right{
+    display: flex;
+    justify-content: space-between;
+    width: 53%;
+    margin-top: 25px;
+}
+.footer-right p{
+    margin: 8px 0;
+}
+.right32{
+    display: flex;
+}
+.footer-left div{
+    display: flex;
+    align-items: center;
+}
+.mail, .phone, .address{
+    margin: 7px;
+}
+.footer-right h4{
+    color: var(--grey-15, #262626);
+}
+.icon{
+    border-radius: 8px;
+border: 1px solid var(--white-95, #F1F1F3);
+background: var(--white-97, #F7F7F8);
+padding: 10px 12px;
+flex-direction: column;
+align-items: flex-start;
+gap: 10px;
+display: flex;
+margin-right: 8px;
+
+}
+.copyright{
+    margin: 50px 0 0;
+    text-align: center;
+}

@@ -1,0 +1,71 @@
+.about{
+    margin: 80px 9%; 
+}
+.about-child1{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.about-child1 p{
+    width: 70%;
+}
+.achievements h1{
+    color: var(--grey-20, #333);
+    font-weight: 500;
+    line-height: 150%;
+}
+.achievements{
+    margin-top: 60px;
+}
+.achive-model{
+    padding: 40px;
+    background: white;
+    border-radius: 10px;
+}
+.achive-all{
+    /* padding: 20px; */
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
+}
+.achive-icon{
+    border-radius: 8px;
+    border: 1px solid #FFF500;
+    background: rgba(255, 245, 0, 0.07);
+    padding: 8px;
+    justify-content: center;
+    display: flex;
+    width: 30px;
+    height: 30px;
+}
+.achive-model h2{
+    color: var(--grey-15, #262626);
+font-weight: 500;
+line-height: 150%; /* 36px */
+font-size: 22px;
+}
+#goals{
+    margin-top: 130px;
+}
+.together{
+    margin-top: 80px;
+    padding: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    background: white;
+}
+.together img{
+    width: 90%;
+}
+.together button{
+    padding: 10px;
+    width: 150px;
+    font-weight: 600;
+    letter-spacing: 0.01px;
+    height: 50px;
+}
+.together-text span{
+    color: #FFF500;
+}

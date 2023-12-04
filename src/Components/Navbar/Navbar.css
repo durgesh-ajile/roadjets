@@ -1,0 +1,53 @@
+.navbar{
+    margin: 0 20px;
+}
+.nav-title{
+    border-radius: 8px;
+    background: #FFF500;
+    font-size: 18px;
+    padding: 14px 0px;
+justify-content: center;
+align-items: center;
+margin-top: 10px;
+text-align: center;
+display: flex;
+}
+#arrow-icon{
+    font-size: 17px;
+    padding-bottom: 2px;
+}
+.nav-links{
+    display: flex;
+    align-items: center;
+}
+.links{
+    display: flex;
+    margin: auto;
+}
+.links div{
+    padding: 10px 24px;
+    cursor: pointer;
+}
+.signup-in{
+    margin-right: 30px;
+}
+.signup-in button{
+    padding: 14px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 17px;
+}
+#signup-btn{
+    background: var(--white-97, #F7F7F8);    border: 0px;
+}
+#login-btn{
+    background: #FFF500;
+    border: #FFF500;
+    padding: 14px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 17px;
+}
+.service-book{
+    display: flex;
+}
