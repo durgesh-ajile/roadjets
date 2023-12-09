@@ -1,0 +1,164 @@
+.logindiv {
+    height: 100%;
+    padding-bottom: 100px;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 80px 0 80px 0;
+  }
+  
+  .testimonialtitle {
+    font-size: 26px;
+  }
+  
+  .testimonialmain {
+    /* margin: 0 10px 0 10px; */
+    width: 600px;
+    background-color: white;
+    padding: 18px 0 0 0;
+    border-radius: 8px;
+  }
+  
+  .testimonialmainpara {
+    padding: 0 24px;
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+  
+  .usercomment {
+    display: flex;
+    margin: 12px 0 0 0;
+  }
+  
+  .testimonialmaininner {
+    background-color: rgb(240, 239, 239);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0 22px 25px;
+    border-top: 1px solid rgb(238, 236, 236);
+    border-bottom-left-radius: 8px 8px;
+    border-bottom-right-radius: 8px 8px;
+  }
+  
+  .testimonialreadmebtn {
+    margin: 19px 20px 0 0;
+    height: 40px;
+    width: 120px;
+    background-color: yellow;
+    border: 1px solid black;
+    border-radius: 10px;
+  }
+  
+  .username {
+    font-size: 14px;
+  }
+  
+  .loginmaindiv {
+    padding: 32px 8px;
+    height: 650px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 600px;
+    background-color: white;
+    border-radius: 15px;
+  }
+  
+  .welcomemsg {
+    text-align: center;
+    margin: 0 125px 24px;
+  }
+  
+  .loginheading {
+    margin: 0;
+    font-size: 30px;
+  }
+  
+  .loginsubheading {
+    margin: 0;
+    font-size: 16px;
+  }
+  
+  .logininputdiv {
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 520px;
+  }
+  
+  .emaiinput {
+    height: 35px;
+    padding: 0 0 0 10px;
+  }
+  
+  .passwordinput {
+    height: 35px;
+    padding: 0 0 0 10px;
+   
+  }
+  
+  .forgotpass {
+    text-align: right;
+    text-decoration: none;
+  }
+  
+  .buttondiv {
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 520px;
+    margin: 30px 0 0 0;
+  }
+  
+  .loginbutton {
+    height: 40px;
+    border-radius: 5px;
+    background-color: yellow;
+    margin: 24px 0 16px 0;
+    font-size: 16px;
+  }
+  
+  .googlebutton {
+    height: 40px;
+    border-radius: 5px;
+    background-color: white;
+    margin: 16px 0 0 0;
+    font-size: 16px;
+  }
+  
+  .googlelogo {
+    margin: 0 10px 0 0;
+    height: 28px;
+    width: 28px;
+  }
+  
+  .googlealign {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .signup {
+    text-align: center;
+    margin: 15px 0 75px 0;
+  }
+  
+  .signupbutton {
+    text-decoration: none;
+  }
+  
+  .arrowright {
+    height: 15px;
+    width: 15px;
+    transform: rotate(175deg);
+    align-items: center;
+  }
+  
+  .testimonial {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  

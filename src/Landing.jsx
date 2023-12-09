@@ -1,23 +1,27 @@
-import React from 'react'
-import Navbar from './Components/Navbar/Navbar'
-import Footer from './Components/Footer/Footer'
-import Home from './Pages/Home/Home'
-import { Route, Routes } from 'react-router-dom'
-import Services from './Pages/Services/Services'
-import About from './Pages/About/About'
+import React from "react";
+import Navbar from "./Components/Navbar/Navbar";
+import Footer from "./Components/Footer/Footer";
+import Home from "./Pages/Home/Home";
+import { Route, Routes } from "react-router-dom";
+import Services from "./Pages/Services/Services";
+import About from "./Pages/About/About";
+import Knowus from "./Pages/Home/Knowus";
+import HomeService from "./Pages/Home/HomeService";
+import Contactus from "./Pages/Contactus/Contactus";
 
 const Landing = () => {
   return (
     <div className="landing">
-        <Navbar />
-        <Routes>
-            <Route path='/' element={<Home/>} />
-            <Route path='/services' element={<Services />} />
-            <Route path='/about' element={<About />} />
-        </Routes>
-        <Footer/>
+      {/* <Navbar /> */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contactus" element={<Contactus />} />
+      </Routes>
+      {/* <Footer/> */}
     </div>
-  )
-}
+  );
+};
 
-export default Landing
+export default Landing;

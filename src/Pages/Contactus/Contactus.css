@@ -1,0 +1,31 @@
+.contactusheader {
+    display: flex;
+   justify-content: space-between;
+   align-items: center;
+   
+}
+
+.contactusheading {
+    width: 300px;
+    font-size: 25px;
+    text-align: center;
+    margin: 50px 0 0 40px
+}
+
+.contactusdiv {
+    height: 1000px;
+}
+
+.contactusparagraph {
+    font-size: 15.5px;
+    width: 600px;
+    margin: 60px 100px 0 0;
+}
+
+.contactusfirstpara {
+    margin-bottom: 0;
+}
+
+.contactussecpara {
+    margin-top: 0;
+}

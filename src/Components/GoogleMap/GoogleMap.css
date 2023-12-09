@@ -1,0 +1,72 @@
+.mapicon {
+  transform: rotate(50deg);
+}
+
+.mapcontainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.requestdiv {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  position: relative;
+}
+
+.pickupinput {
+  margin: 50px 25px 6px 50px;
+  width: 500px;
+  height: 40px;
+  padding: 0 0 0 30px;
+  background-color: yellow;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+}
+
+.destinationinput {
+  margin: 0 25px 14px 50px;
+  width: 500px;
+  height: 40px;
+  padding: 0 0 0 30px;
+  background-color: yellow;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+}
+
+.requestdiv::before {
+  content: "";
+  position: absolute;
+  top: 93px;
+  left: 63px;
+  /* left: 1; */
+  transform: translate(-50%, -50%);
+  width: 1px; 
+  height: 30px;
+  background-color: #000000; /* Adjust the color of the line as needed */
+}
+
+.circleicon {
+  position: absolute;
+  top: 64px;
+  left: 57px;
+  
+}
+
+.squareicon {
+  position: absolute;
+  top: 110px;
+  left: 57px;
+}
+
+.requestnowbtn {
+  margin: 0 25px 14px 50px;
+  width: 250px;
+  height: 40px;
+  background-color: yellow;
+  font-size: 20px;
+  border-radius: 5px;
+}
