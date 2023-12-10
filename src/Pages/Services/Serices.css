@@ -85,3 +85,7 @@ letter-spacing: .001px;
     flex-direction: column;
     text-align: center; */
 }
+
+.map {
+    margin: 50px 0 0 0;
+}

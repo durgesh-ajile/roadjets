@@ -1,8 +1,7 @@
-/* eslint-disable react/no-unescaped-entities */
-import React from "react";
-import "./Login.css";
+import React from 'react'
+import "./Signup.css"
 
-const Login = () => {
+const Signup = () => {
   return (
     <div className="logindiv">
       <div className="testimonial">
@@ -33,16 +32,22 @@ const Login = () => {
       </div>
       <div className="loginmaindiv">
         <div className="welcomemsg">
-          <h3 className="loginheading">Login</h3>
+          <h3 className="loginheading">Sign Up</h3>
           <h6 className="loginsubheading">
-            Welcome back! Please log in to access your account.
+            Create account to unlock exclusive features.
           </h6>
         </div>
 
         <div className="logininputdiv">
-          <label className="emaillabel">Email</label>
+        <label className="emaillabel">Full Name</label>
           <input
             type="text"
+            placeholder="Enter your Full Name"
+            className="emaiinput"
+          ></input>
+          <label className="emaillabel">Email</label>
+          <input
+            type="Email"
             placeholder="Enter your Email"
             className="emaiinput"
           ></input>
@@ -57,7 +62,7 @@ const Login = () => {
           </a>
         </div>
         <div className="buttondiv">
-          <button className="loginbutton">Login</button>
+          <button className="loginbutton">Sign Up</button>
           <button className="googlebutton">
             <div className="googlealign">
               <img
@@ -67,13 +72,13 @@ const Login = () => {
                 alt="google-logo"
                 className="googlelogo"
               />
-              <span className="googlelabel">Login with Google</span>
+              <span className="googlelabel">Sign Up with Google</span>
             </div>
           </button>
           <label className="signup">
-            Don't have an account ?{" "}
+            Already have an Account ?{" "}
             <a href="" className="signupbutton">
-              Sign Up
+              Login In
             </a>
             <img
               width="50"
@@ -87,6 +92,6 @@ const Login = () => {
       </div>
     </div>
   );
-};
+}
 
-export default Login;
+export default Signup

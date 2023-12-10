@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import React from 'react'
 import './Serices.css'
 import warangal1 from '../../assets/Warangal.png'
@@ -5,6 +6,7 @@ import warangal2 from '../../assets/Warangal2.png'
 import warangal3 from '../../assets/Warangal3.png'
 import Karimnagar from '../../assets/Karimnagar.png'
 import Kammar from '../../assets/Kammam.png'
+import MapContainer from '../../Components/GoogleMap/GoogleMap'
 
 const timeData = [{
     time: "5:00 AM",
@@ -77,7 +79,7 @@ const Services = () => {
   return (
     <div className='services'>
         <div className="map">
-            map
+            <MapContainer />
         </div>
         <div className="all-service">
             {serviceData.map((data) => {
