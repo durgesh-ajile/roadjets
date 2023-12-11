@@ -112,7 +112,7 @@ const Home = () => {
         </div>
         <div className="big-btn">
           <button id="over-btn">
-            <button style={{ width: "550px" }}>Affordability Redefined</button>
+            <button id="afford-btn">Affordability Redefined</button>
           </button>
         </div>
 

@@ -17,22 +17,22 @@
 
 .pickupinput {
   margin: 50px 25px 6px 50px;
-  width: 500px;
-  height: 40px;
+  width: 100%;
+  height: 50px;
   padding: 0 0 0 30px;
   background-color: yellow;
-  font-size: 20px;
+  font-size: 18px;
   border: none;
   border-radius: 5px;
 }
 
 .destinationinput {
   margin: 0 25px 14px 50px;
-  width: 500px;
-  height: 40px;
+  width: 100%;
+  height: 50px;
   padding: 0 0 0 30px;
   background-color: yellow;
-  font-size: 20px;
+  font-size: 18px;
   border: none;
   border-radius: 5px;
 }
@@ -40,33 +40,67 @@
 .requestdiv::before {
   content: "";
   position: absolute;
-  top: 93px;
+  top: 102px;
   left: 63px;
   /* left: 1; */
   transform: translate(-50%, -50%);
-  width: 1px; 
-  height: 30px;
+  width: .51px; 
+  height: 58px;
   background-color: #000000; /* Adjust the color of the line as needed */
 }
 
 .circleicon {
   position: absolute;
-  top: 64px;
+  top: 68px;
   left: 57px;
   
 }
 
 .squareicon {
   position: absolute;
-  top: 110px;
+  top: 124px;
   left: 57px;
 }
 
 .requestnowbtn {
   margin: 0 25px 14px 50px;
-  width: 250px;
+  width: 200px;
   height: 40px;
   background-color: yellow;
   font-size: 20px;
   border-radius: 5px;
+  border: 0;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 651px) {
+  .mapcontainer{
+      display: block;
+  }
+  .map {
+      margin: 50px 7% 0;
+  }
+  .destinationinput {
+      margin: 0 25px 14px 0px 
+  }
+  .pickupinput {
+    margin: 36px 25px 6px 0px;
+    width: 143%;
+  }
+  .destinationinput {
+    margin: 0 25px 14px 0px;
+    width: 143%;
+  }
+  .requestnowbtn {
+    margin: 0 25px 14px 0px;
+  }
+  .requestdiv::before {
+    left: 16px;
+  }
+  .circleicon {
+    left: 10px;
+}
+.squareicon {
+  left: 10px;
+}
 }

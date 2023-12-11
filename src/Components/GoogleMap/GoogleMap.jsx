@@ -2,13 +2,23 @@
 import React from "react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import "./GoogleMap.css";
+import { useRef } from 'react';
 
 const MapContainer = () => {
+
+  const windowWidth = useRef(window.innerWidth);
+
+console.log(windowWidth.current < 651)
+
   const mapStyles = {
     height: "50vh",
     width: "50%",
   };
 
+  const mapStylesMobile = {
+    height: "40vh",
+    width: "100%",
+  };
   const defaultCenter = {
     lat: 37.7749,
     lng: -122.4194,
@@ -18,7 +28,7 @@ const MapContainer = () => {
     <div className="mapcontainer">
       <LoadScript googleMapsApiKey="AIzaSyBVVJ911DUtETpVPMCWFZxmsnZoM6mJCzk">
         <GoogleMap
-          mapContainerStyle={mapStyles}
+          mapContainerStyle={windowWidth.current > 651 ? mapStyles : mapStylesMobile}
           zoom={13}
           center={defaultCenter}
         >

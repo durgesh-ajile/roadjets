@@ -3,6 +3,8 @@
     padding: 30px;
     background: white;
     border-radius: 10px;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 .service-model {
     margin-bottom: 30px;
@@ -87,5 +89,19 @@ letter-spacing: .001px;
 }
 
 .map {
-    margin: 50px 0 0 0;
+    margin: 50px 20% 0;
+}
+@media screen and (max-width: 651px) {
+    .mapcontainer{
+        display: block;
+    }
+    .map {
+        margin: 50px 7% 0;
+    }
+    .destinationinput {
+        margin: 0 25px 14px 0px 
+    }
+    .all-service {
+        margin: 60px 0;
+    }
 }
