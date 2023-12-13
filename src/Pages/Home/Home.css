@@ -310,7 +310,7 @@
   margin: 81px 0%;
 }
 .knowus .big-btn, .head-serve{
-  margin-left: 40px;
+  margin-left: 45px;
 }
 .know1 p {
   padding: 0 0 0 22px;
@@ -321,7 +321,7 @@
   padding: 0 16px 30px;
 }
 .read{
-  /* width:155px; */
+  width:155px;
   text-align: center;
 }
 
@@ -353,5 +353,8 @@
 }
 .whyroadjets .head-serve{
   margin-left: 0;
+}
+.knowmodel-cont {
+  width: 98%;
 }
 }
