@@ -50,6 +50,8 @@
   
   .username {
     font-size: 14px;
+    display: flex;
+    align-items: center;
   }
   
   .loginmaindiv {
@@ -79,7 +81,7 @@
     font-size: 16px;
   }
   
-  .logininputdiv {
+  .signupinputdiv {
     height: 700px;
     display: flex;
     flex-direction: column;

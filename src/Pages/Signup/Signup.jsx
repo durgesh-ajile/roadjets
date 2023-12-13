@@ -38,7 +38,7 @@ const Signup = () => {
           </h6>
         </div>
 
-        <div className="logininputdiv">
+        <div className="signupinputdiv">
         <label className="emaillabel">Full Name</label>
           <input
             type="text"
@@ -78,7 +78,7 @@ const Signup = () => {
           <label className="signup">
             Already have an Account ?{" "}
             <a href="" className="signupbutton">
-              Login In
+              Login
             </a>
             <img
               width="50"

@@ -78,12 +78,12 @@ const Home = () => {
       </div>
       <div className="home-btn signup-in">
         <button id="login-btn">Book Ride</button>
-        <button
+        {/* <button
           id="signup-btn"
           style={{ background: "white", marginLeft: "10px" }}
         >
           View Pricing
-        </button>
+        </button> */}
       </div>
 
       <div className="ourservices">
@@ -91,7 +91,6 @@ const Home = () => {
           <div>
             <h1>Our Services</h1>
             <p>
-              {" "}
               Choose your destination, time & get an instant confirmation from
               our customer support.
             </p>

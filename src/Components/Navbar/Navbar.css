@@ -55,6 +55,13 @@ display: flex;
     display: none;
 }
 
+.navigatelink {
+    text-decoration: none;
+    color: black;
+}
+
+
+
 @media screen and (max-width: 651px) {
     #side-select{
         color: white;

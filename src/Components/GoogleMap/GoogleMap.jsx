@@ -26,16 +26,7 @@ console.log(windowWidth.current < 651)
 
   return (
     <div className="mapcontainer">
-      <LoadScript googleMapsApiKey="AIzaSyBVVJ911DUtETpVPMCWFZxmsnZoM6mJCzk">
-        <GoogleMap
-          mapContainerStyle={windowWidth.current > 651 ? mapStyles : mapStylesMobile}
-          zoom={13}
-          center={defaultCenter}
-        >
-          {/* Add markers or other components as needed */}
-          <Marker position={defaultCenter} />
-        </GoogleMap>
-      </LoadScript>
+      <img src="../../../public/booknow.png" width="300" height="300" />
       <div className="requestdiv">
         <input className="pickupinput" placeholder="Enter Pickup Location" />
         {/* <img

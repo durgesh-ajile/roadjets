@@ -1,31 +1,211 @@
 .contactusheader {
-    display: flex;
-   justify-content: space-between;
-   align-items: center;
-   
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .contactusheading {
-    width: 300px;
-    font-size: 25px;
-    text-align: center;
-    margin: 50px 0 0 40px
+  width: 300px;
+  font-size: 25px;
+  text-align: center;
+  margin: 50px 0 0 40px;
 }
 
 .contactusdiv {
-    height: 1000px;
+  height: 1200px;
 }
 
 .contactusparagraph {
-    font-size: 15.5px;
-    width: 600px;
-    margin: 60px 100px 0 0;
+  font-size: 15.5px;
+  width: 600px;
+  margin: 60px 100px 0 0;
 }
 
 .contactusfirstpara {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .contactussecpara {
-    margin-top: 0;
+  margin-top: 0;
+}
+
+.horizontalline {
+  margin: 20px 30px 0 30px;
+}
+
+.contactussection {
+  height: 700px;
+  width: 1200px;
+  margin: 120px 0 0 130px;
+  padding: 35px;
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.contactusform {
+  width: 800px;
+  margin: 30px 0 0 0;
+}
+
+.contactusname {
+  display: flex;
+  justify-content: space-around;
+}
+
+.contactusfirstname {
+  display: flex;
+  flex-direction: column;
+}
+
+.contactuslastname {
+  display: flex;
+  flex-direction: column;
+}
+
+.firstname {
+  margin: 10px 0 10px 0;
+}
+
+.firstinput {
+  font-size: 15px;
+  height: 35px;
+  width: 250px;
+}
+
+.lastname {
+  margin: 10px 0 10px 0;
+}
+
+.lastinput {
+  font-size: 15px;
+  height: 35px;
+  width: 250px;
+}
+
+.contactusemail {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0 0 0;
+}
+
+.subject {
+  display: flex;
+  flex-direction: column;
+  margin: 30px 70px 0 68px;
+}
+
+.subjecttitle {
+  margin: 10px 0 10px 0;
+}
+
+.subjectinput {
+  font-size: 15px;
+  height: 35px;
+  width: 655px;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  margin: 30px 70px 0 68px;
+}
+
+.messagetitle {
+  margin: 10px 0 10px 0;
+}
+
+.messageinput {
+  font-size: 15px;
+  height: 80px;
+  width: 655px;
+  resize: none;
+}
+
+.sendmsgbutton {
+  height: 40px;
+  margin: 80px 0 0 340px;
+  border-radius: 4px;
+  background-color: yellow;
+}
+
+.contactusiconsinfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+.icons {
+  border-radius: 8px;
+  border: 1px solid var(--white-95, #f1f1f3);
+  background: var(--white-97, #fffc5b);
+  padding: 10px 12px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  display: flex;
+  margin-right: 8px;
+  margin-bottom: 12px;
+}
+
+
+.mailid {
+    height: 125px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 10px solid rgb(238, 231, 231);
+    padding: 5px 40px;
+}
+
+.phonenumber {
+    height: 125px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 10px solid rgb(238, 231, 231);
+    padding: 5px 40px;
+}
+
+.contactlocation {
+    height: 125px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* margin: 10px 0 0 8px; */
+    border: 10px solid rgb(238, 231, 231);
+    padding: 5px 40px;
+}
+
+.socialprofile {
+    height: 125px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 10px solid rgb(238, 231, 231);
+    padding: 5px 40px;
+    /* margin: 10px 0 0 8px; */
+}
+
+.combinesocial {
+    display: flex;
+}
+
+
+.maillink {
+    text-decoration: none;
+}
+
+.phonelink {
+    text-decoration: none;
 }
