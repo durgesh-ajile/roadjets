@@ -96,11 +96,14 @@
   }
   .requestdiv::before {
     left: 16px;
+    top: 89px;
   }
   .circleicon {
     left: 10px;
+    top: 56px;
 }
 .squareicon {
   left: 10px;
+  top: 110px;
 }
 }

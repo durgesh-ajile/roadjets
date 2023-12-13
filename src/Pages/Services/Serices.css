@@ -104,4 +104,17 @@ letter-spacing: .001px;
     .all-service {
         margin: 60px 0;
     }
+    .service-book{
+        display: block;
+    }
+    .service-book p{
+        width: 100%;
+    }
+    .location span {
+        margin-left: 10px;
+    }
+    .time-box {
+        padding: 20px 0;
+        grid-template-columns: auto auto;
+    }
 }
