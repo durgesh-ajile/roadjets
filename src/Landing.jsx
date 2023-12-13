@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import Navbar from "./Components/Navbar/Navbar";
 import Footer from "./Components/Footer/Footer";
 import Home from "./Pages/Home/Home";
@@ -10,6 +10,8 @@ import HomeService from "./Pages/Home/HomeService";
 import Contactus from "./Pages/Contactus/Contactus";
 
 const Landing = () => {
+  
+
   return (
     <div className="landing">
       {/* <Navbar /> */}

@@ -26,9 +26,11 @@ const Navbar = () => {
         <FaArrowRight id="arrow-icon" />
       </div>
       <div className="nav-links">
-        <div className="logo">
-          <img src={Logo} />
-        </div>
+        <Link to="/">
+          <div className="logo">
+            <img src={Logo} />
+          </div>
+        </Link>
         <div className="links">
           <Link className="navigatelink" to="/">
             <div style={location.pathname === "/" ? selected : null}>Home</div>

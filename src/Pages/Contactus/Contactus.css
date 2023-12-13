@@ -128,6 +128,7 @@
   margin: 80px 0 0 340px;
   border-radius: 4px;
   background-color: yellow;
+  cursor: pointer;
 }
 
 .contactusiconsinfo {
@@ -204,8 +205,10 @@
 
 .maillink {
     text-decoration: none;
+    color: black;
 }
 
 .phonelink {
     text-decoration: none;
+    color: black;
 }

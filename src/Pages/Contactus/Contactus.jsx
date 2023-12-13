@@ -1,13 +1,65 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Contactus.css";
 import { IoMdMail } from "react-icons/io";
 import { FaFacebook, FaLinkedin, FaPhoneAlt, FaTwitter } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
+import axios from "axios";
+import toast, { Toaster } from "react-hot-toast";
 
 const Contactus = () => {
-  const handleDragStart = (e) => {
-    e.preventDefault();
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+
+  const apiContactUs = async () => {
+    try {
+      const response = await axios({
+        method: "POST",
+        url: "http://localhost:3000/api/contact-us",
+        data: {
+          firstName: firstName,
+          lastName: lastName,
+          email: email,
+          phone: phone,
+          subject: subject,
+          message: message,
+        },
+      });
+
+      return response;
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
   };
+
+  const handleContactUs = async (e) => {
+    e.preventDefault();
+
+    toast.promise(
+      apiContactUs(),
+      {
+        loading: "Sending message...",
+        success: "Message sent successfully!",
+        error: "Failed to send message. Please try again.",
+      },
+      {
+        style: {
+          minWidth: "250px",
+          backgroundColor: "black",
+          color: "white"
+        },
+        success: {
+          duration: 5000,
+          icon: "🚀",
+        },
+      }
+    );
+  };
+
   return (
     <div className="contactusdiv">
       <div className="contactusheader">
@@ -31,45 +83,92 @@ const Contactus = () => {
           <div className="contactusname">
             <div className="contactusfirstname">
               <label className="firstname">First Name</label>
-              <input className="firstinput" type="text" />
+              <input
+                className="firstinput"
+                type="text"
+                onChange={(e) => {
+                  setFirstName(e.target.value);
+                }}
+              />
             </div>
             <div className="contactuslastname">
               <label className="lastname">Last Name</label>
-              <input className="lastinput" type="text" />
+              <input
+                className="lastinput"
+                type="text"
+                onChange={(e) => {
+                  setLastName(e.target.value);
+                }}
+              />
             </div>
           </div>
           <div className="contactusemail">
             <div className="contactusfirstname">
               <label className="firstname">Email</label>
-              <input className="firstinput" type="Email" />
+              <input
+                className="firstinput"
+                type="Email"
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+              />
             </div>
             <div className="contactuslastname">
               <label className="lastname">Phone</label>
-              <input className="lastinput" type="Phone" />
+              <input
+                className="lastinput"
+                type="Phone"
+                onChange={(e) => {
+                  setPhone(e.target.value);
+                }}
+              />
             </div>
           </div>
           <div className="subject">
             <label className="subjecttitle">Subject</label>
-            <input className="subjectinput" type="text" />
+            <input
+              className="subjectinput"
+              type="text"
+              onChange={(e) => {
+                setSubject(e.target.value);
+              }}
+            />
           </div>
           <div className="message">
             <label className="messagetitle">Message</label>
-            <textarea className="messageinput" type="text" />
+            <textarea
+              className="messageinput"
+              type="text"
+              onChange={(e) => {
+                setMessage(e.target.value);
+              }}
+            />
           </div>
-          <button className="sendmsgbutton">Send Your Message</button>
+          <button
+            className="sendmsgbutton"
+            onClick={(e) => {
+              handleContactUs(e);
+            }}
+          >
+            Send Your Message
+          </button>
         </div>
         <div className="contactusiconsinfo">
           <div className="mailid">
             <div className="icons">
               <IoMdMail />
             </div>
-            <a className="maillink" href="mailto:roadjets.in@gmail.com">roadjets.in@gmail.com</a>
+            <a className="maillink" href="mailto:roadjets.in@gmail.com">
+              roadjets.in@gmail.com
+            </a>
           </div>
           <div className="phonenumber">
             <div className="icons">
               <FaPhoneAlt />
             </div>
-            <a className="phonelink" href="tel:+918320911933">+91 8320911933</a>
+            <a className="phonelink" href="tel:+918320911933">
+              +91 8320911933
+            </a>
           </div>
           <div className="contactlocation">
             <div className="icons">
@@ -94,6 +193,7 @@ const Contactus = () => {
           </div>
         </div>
       </div>
+      <Toaster />
     </div>
   );
 };

@@ -9,6 +9,8 @@ import Karimnagar from "../../assets/Karimnagar.png";
 import Kammar from "../../assets/Kammam.png";
 import MapContainer from "../../Components/GoogleMap/GoogleMap";
 import axios from "axios";
+import { useLocation } from 'react-router-dom';
+import { scroller } from 'react-scroll';
 
 const timeData = [
   {
@@ -110,6 +112,22 @@ const serviceData = [
   },
 ];
 const Services = () => {
+
+  const location = useLocation();
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const scrollToElement = params.get('scrollTo');
+
+    if (scrollToElement) {
+      scroller.scrollTo(scrollToElement, {
+        duration: 500,
+        delay: 100,
+        smooth: true,
+      });
+    }
+  }, [location.search]);
+
   const handleBook = async (e, location, preference) => {
     e.preventDefault();
     try {
@@ -142,10 +160,10 @@ const Services = () => {
       <div className="map">
         <MapContainer />
       </div>
-      <div className="all-service">
+      <div className="all-service" id="bookride-section">
         {serviceData.map((data) => {
           return (
-            <div className="service-model" key={data.id}>
+            <div className="service-model" key={data.id} id={data.id}>
               <h2>{data.title}</h2>
               <div className="service-book">
                 <p>{data.text}</p>

@@ -11,6 +11,7 @@ import puzzle from '../../assets/puzzlepiece.fill.svg'
 import light from '../../assets/light.beacon.max.fill.svg'
 
 import star from '../../assets/Star 1.png'
+import { Link } from 'react-router-dom'
 
 const About = () => {
   return (
@@ -124,7 +125,9 @@ Fasten your seatbelt, and let RoadJets take you places.
         <div className="together-img">
           <img src={star} />
         </div>
+        <Link to="/services?scrollTo=bookride-section">
         <button id='login-btn' style={{padding:'10px'}}>Book Now</button>
+        </Link>
       </div>
     </div>
   )
