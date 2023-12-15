@@ -17,9 +17,9 @@ const Landing = () => {
       {/* <Navbar /> */}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contactus" element={<Contactus />} />
+        <Route path="/Services" element={<Services />} />
+        <Route path="/About" element={<About />} />
+        <Route path="/Contactus" element={<Contactus />} />
       </Routes>
       {/* <Footer/> */}
     </div>
