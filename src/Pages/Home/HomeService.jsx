@@ -4,8 +4,27 @@ import image1 from "../../assets/Image1.png";
 import image2 from "../../assets/Image2.png";
 import image3 from "../../assets/Image3.png";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const HomeService = () => {
+  const handleNizamabad = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios({
+        method: "post",
+        url: "https://roadjets.onrender.com/api/get-whatapplink",
+        data: {
+          toPhone: "+918975141294",
+          message: `Hii! I want to book a ride to Nizamabad`,
+        },
+      });
+
+      // Open the WhatsApp link in a new window
+      window.open(response.data.link, "_blank");
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="homeservice">
       <div className="service-model">
@@ -79,9 +98,15 @@ const HomeService = () => {
           <p>
             {/* Route - via  ORR - Distance : 199 Km - Duration : 3 hours 30 minutes. Book your ride now. enjoy the seamless,safe & affordable travel with roadjets. */}
           </p>
-          <Link to="/services?scrollTo=2">
-            <button className="book-btn">Book Now!</button>
-          </Link>
+
+          <button
+            className="book-btn"
+            onClick={(e) => {
+              handleNizamabad(e);
+            }}
+          >
+            Book Now!
+          </button>
         </div>
       </div>
     </div>

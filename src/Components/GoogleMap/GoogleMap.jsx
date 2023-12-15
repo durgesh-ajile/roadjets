@@ -1,14 +1,14 @@
 // GoogleMap.js
-import React from "react";
+import React, { useState } from "react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import "./GoogleMap.css";
-import { useRef } from 'react';
+import { useRef } from "react";
+import axios from "axios";
 
 const MapContainer = () => {
-
   const windowWidth = useRef(window.innerWidth);
 
-console.log(windowWidth.current < 651)
+  console.log(windowWidth.current < 651);
 
   const mapStyles = {
     height: "50vh",
@@ -24,11 +24,43 @@ console.log(windowWidth.current < 651)
     lng: -122.4194,
   };
 
+  const [pickUp, setPickUp] = useState("");
+  const [drop, setDrop] = useState("");
+
+  const handleRequest = async (e) => {
+    e.preventDefault();
+    try {
+      try {
+        const response = await axios({
+          method: "post",
+          url: "https://roadjets.onrender.com/api/get-whatapplink",
+          data: {
+            toPhone: "+918975141294",
+            message: `Hi! I want to request a ride from ${pickUp} to ${drop}. let me know for further info`,
+          },
+        });
+
+        // Open the WhatsApp link in a new window
+        window.open(response.data.link, "_blank");
+      } catch (error) {
+        console.log(error);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="mapcontainer">
       <img src="../../../public/booknow.png" width="300" height="300" />
       <div className="requestdiv">
-        <input className="pickupinput" placeholder="Enter Pickup Location" />
+        <input
+          className="pickupinput"
+          placeholder="Enter Pickup Location"
+          onChange={(e) => {
+            setPickUp(e.target.value);
+          }}
+        />
         {/* <img
           width="24"
           height="24"
@@ -38,10 +70,35 @@ console.log(windowWidth.current < 651)
           // onClick={handleGetCurrentLocation}
           style={{ cursor: 'pointer' }}
         /> */}
-        <img className="circleicon" width="12" height="12" src="https://img.icons8.com/ios/50/circled.png" alt="circled"/>
-        <img className="squareicon" width="12" height="12" src="https://img.icons8.com/ios/50/rounded-square.png" alt="rounded-square"/>
-        <input className="destinationinput" placeholder="Enter Destination Location" />
-        <button className="requestnowbtn">Request Now</button>
+        <img
+          className="circleicon"
+          width="12"
+          height="12"
+          src="https://img.icons8.com/ios/50/circled.png"
+          alt="circled"
+        />
+        <img
+          className="squareicon"
+          width="12"
+          height="12"
+          src="https://img.icons8.com/ios/50/rounded-square.png"
+          alt="rounded-square"
+        />
+        <input
+          className="destinationinput"
+          placeholder="Enter Destination Location"
+          onChange={(e) => {
+            setDrop(e.target.value);
+          }}
+        />
+        <button
+          className="requestnowbtn"
+          onClick={(e) => {
+            handleRequest(e);
+          }}
+        >
+          Request Now
+        </button>
       </div>
     </div>
   );

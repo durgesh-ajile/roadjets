@@ -18,7 +18,7 @@ const Contactus = () => {
     try {
       const response = await axios({
         method: "POST",
-        url: "http://localhost:3000/api/contact-us",
+        url: "https://roadjets.onrender.com/api/contact-us",
         data: {
           firstName: firstName,
           lastName: lastName,

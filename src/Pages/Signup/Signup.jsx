@@ -1,18 +1,128 @@
-import React from 'react'
-import "./Signup.css"
+import React, { useEffect, useState } from "react";
+import "./Signup.css";
+import axios from "axios";
+import toast from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
+import { Link, useNavigate } from "react-router-dom";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { useSpring, animated } from "react-spring";
 
 const Signup = () => {
+  const navigate = useNavigate();
+
+  // Testimonials data
+  const testimonials = [
+    {
+      text: "Being a female traveller, I often faced issues like safety. Taking a nap while traveling was a challenge. Now I can happily rely on RoadJett without any fear. The best part is that they always have a female prevention system.",
+      user: "Pranitha (Software Techie @Microsoft)",
+    },
+    {
+      text: "Thank you Roadjets for making intercity travel simple quicker and affordable. I often faced the problem to go to my office at gachibowli because of multiple modes of transportation i have to take leading to high cost and time",
+      user: "Vishwak Reddy (operation manager @phenome)",
+    },
+    // Add more testimonials as needed
+  ];
+
+  const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
+
+  const slideProps = useSpring({
+    opacity: 1,
+    from: { opacity: 0 },
+    reset: false,
+    onRest: () => {
+      // Do something on animation end if needed
+    },
+  });
+
+  // Function to show the next testimonial
+  const showNextTestimonial = () => {
+    setCurrentTestimonialIndex(
+      (prevIndex) => (prevIndex + 1) % testimonials.length
+    );
+  };
+
+  // Function to show the previous testimonial
+  const showPrevTestimonial = () => {
+    setCurrentTestimonialIndex(
+      (prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length
+    );
+  };
+
+  const handleSignUpGoogle = () => {
+    try {
+      window.open("https://roadjets.onrender.com/api/auth/google", "_self");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const apiSignUp = async () => {
+    try {
+      const response = await axios({
+        method: "post",
+        url: "https://roadjets.onrender.com/api/signup",
+        data: {
+          fullName: fullName,
+          email: email,
+          password: password,
+        },
+      });
+
+      return response;
+    } catch (error) {
+      // console.log("error " + error.response.data.message);
+      const errorMessage =
+        error.response?.data?.message || "Something went wrong";
+      throw errorMessage;
+    }
+  };
+
+  const handleSignUp = async (e) => {
+    e.preventDefault();
+
+    toast
+      .promise(
+        apiSignUp(),
+        {
+          loading: "Sign up...",
+          success: "Signed up Successfully. Please log In",
+          error: (errorMessage) => `Failed to sign up: ${errorMessage}`,
+        },
+        {
+          style: {
+            minWidth: "250px",
+            backgroundColor: "black",
+            color: "white",
+          },
+          success: {
+            duration: 5000,
+            icon: "🚀",
+          },
+        }
+      )
+      .then(async (res) => {
+        // Check if the sign-up was successful (you can customize this based on your API response structure)
+        if (res && res.status === 201) {
+          // Introduce a delay before navigating to the login page
+          await new Promise((resolve) => setTimeout(resolve, 1000)); // 1000 milliseconds (1 second) delay
+          // Redirect to the login page
+          navigate("/login");
+        }
+      });
+  };
+
   return (
     <div className="logindiv">
       <div className="testimonial">
         <label className="testimonialtitle">RoadRider Testimonials</label>
         <div className="testimonialmain">
-          <p className="testimonialmainpara">
-            Being a female traveller i often faced issues like safety. taking
-            nap while travelling was a challenge. now i can happily rely on
-            roadjett without any fear. The best part is that they always have a
-            female prevence system.
-          </p>
+          <animated.p className="testimonialmainpara" style={slideProps}>
+            {testimonials[currentTestimonialIndex].text}
+          </animated.p>
           <div className="testimonialmaininner">
             <div className="usercomment">
               <img
@@ -22,12 +132,20 @@ const Signup = () => {
                 alt="standing-woman"
                 className="womensvg"
               />
-              <h3 className="username">
-                Pranitha (Software Techie @Microsoft)
-              </h3>
+              <animated.h3 className="username" style={slideProps}>
+                {testimonials[currentTestimonialIndex].user}
+              </animated.h3>
             </div>
             <button className="testimonialreadmebtn">Read More</button>
           </div>
+        </div>
+        <div className="testimonialnavigate">
+          <button className="testimonalleft" onClick={showPrevTestimonial}>
+            <FaArrowLeft />
+          </button>
+          <button className="testimonalright" onClick={showNextTestimonial}>
+            <FaArrowRight />
+          </button>
         </div>
       </div>
       <div className="loginmaindiv">
@@ -39,31 +157,52 @@ const Signup = () => {
         </div>
 
         <div className="signupinputdiv">
-        <label className="emaillabel">Full Name</label>
+          <label className="emaillabel">Full Name</label>
           <input
             type="text"
             placeholder="Enter your Full Name"
             className="emaiinput"
+            onChange={(e) => {
+              setFullName(e.target.value);
+            }}
           ></input>
           <label className="emaillabel">Email</label>
           <input
             type="Email"
             placeholder="Enter your Email"
             className="emaiinput"
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
           ></input>
           <label className="passwordlabel">Password</label>
           <input
             type="password"
             placeholder="Enter your password"
             className="passwordinput"
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
           ></input>
           <a href="" className="forgotpass">
             Forgot Password ?
           </a>
         </div>
         <div className="buttondiv">
-          <button className="loginbutton">Sign Up</button>
-          <button className="googlebutton">
+          <button
+            className="loginbutton"
+            onClick={(e) => {
+              handleSignUp(e);
+            }}
+          >
+            Sign Up
+          </button>
+          <button
+            className="googlebutton"
+            onClick={(e) => {
+              handleSignUpGoogle(e);
+            }}
+          >
             <div className="googlealign">
               <img
                 width="48"
@@ -77,9 +216,9 @@ const Signup = () => {
           </button>
           <label className="signup">
             Already have an Account ?{" "}
-            <a href="" className="signupbutton">
-              Login
-            </a>
+            <Link to="/login" style={{ "text-decoration": "none" }}>
+              <a className="signupbutton">Login</a>
+            </Link>
             <img
               width="50"
               height="50"
@@ -90,8 +229,9 @@ const Signup = () => {
           </label>
         </div>
       </div>
+      <Toaster />
     </div>
   );
-}
+};
 
-export default Signup
+export default Signup;

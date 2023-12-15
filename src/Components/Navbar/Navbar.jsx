@@ -10,6 +10,9 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdLogOut } from "react-icons/io";
+import axios from "axios";
+import { Button } from "react-scroll";
+import toast, { Toaster } from "react-hot-toast";
 
 const Navbar = () => {
   const location = useLocation();
@@ -17,8 +20,88 @@ const Navbar = () => {
     borderRadius: "8px",
     background: "var(--white-95, #F1F1F3)",
   };
+  const [isAuth, setIsAuth] = useState(false);
+  const [userData, setUserData] = useState();
+  const token = localStorage.getItem("token");
+  // const [loading, setLoading] = useState(false);
+
+  console.log(userData);
+  useEffect(() => {
+    const checkAuthentication = async () => {
+      // setLoading(true);
+      try {
+        const response = await axios.get(
+          "https://roadjets.onrender.com/api/auth/check",
+          {
+            withCredentials: true,
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        if (response.status === 202) {
+          console.log(response);
+          // setLoading(false);
+          setIsAuth(true);
+          setUserData(response.data.user);
+        }
+      } catch (err) {
+        console.log(err.response);
+        // setLoading(false);
+        if (err.response.status === 401) {
+          setIsAuth(false);
+        }
+      }
+    };
+
+    checkAuthentication();
+  }, [token]);
+
+  const apilogOut = async () => {
+    localStorage.removeItem("token");
+    axios({
+      method: "post",
+      url: "https://roadjets.onrender.com/api/logout",
+      withCredentials: true,
+    })
+      .then((res) => {
+        console.log(res);
+        setIsAuth(false);
+        return "Logout successfully";
+      })
+      .catch((err) => {
+        console.log(err);
+        throw "Something went wrong";
+        // setLoading(false);
+      });
+  };
+
+  const handleLogout = async () => {
+    toast.promise(
+      apilogOut(),
+      {
+        loading: "Sign up...",
+        success: "Logout successfully",
+        error: "something went wrong",
+      },
+      {
+        style: {
+          minWidth: "250px",
+          backgroundColor: "black",
+          color: "white",
+        },
+        success: {
+          duration: 5000,
+          icon: "🚀",
+        },
+      }
+    );
+  };
+
   return (
     <div className="navbar">
+      <Toaster />
       <div className="nav-title">
         <span style={{ marginRight: "10px" }}>
           Register to unlock offer 🌟 on your first ride
@@ -52,14 +135,26 @@ const Navbar = () => {
             </div>
           </Link>
         </div>
-        <div className="signup-in">
-          <Link className="navigatelink" to="/signup">
-            <button id="signup-btn">Sign Up</button>
-          </Link>
-          <Link className="navigatelink" to="/login">
-            <button id="login-btn">Login</button>
-          </Link>
-        </div>
+        {isAuth ? (
+          <div className="loggedUser">
+            <div className="user-welcome">
+              Welcome, User! {userData.FullName}
+            </div>
+            <button className="logoutbtn" onClick={handleLogout}>
+              Logout
+            </button>
+          </div>
+        ) : (
+          <div className="signup-in">
+            <Link className="navigatelink" to="/signup">
+              <button id="signup-btn">Sign Up</button>
+            </Link>
+            <Link className="navigatelink" to="/login">
+              <button id="login-btn">Login</button>
+            </Link>
+          </div>
+        )}
+
         <div id="sidebar">
           <MobileNavbar />
         </div>
@@ -75,6 +170,7 @@ const MobileNavbar = ({
   setShowPopup,
   select,
 }) => {
+  const [isAuth, setIsAuth] = useState(false)
   const [sidebarToggle, setSidebarToggle] = useState(true);
 
   const NavbarboxRef = useRef(null);
@@ -178,7 +274,7 @@ const MobileNavbar = ({
                     About Us
                   </div>
                 </Link>
-                <Link to="/contact">
+                <Link to="/contactus">
                   <div
                     className="nav-select"
                     id={location.pathname === "/contact" ? "side-select" : ""}
@@ -190,13 +286,12 @@ const MobileNavbar = ({
               </div>
             </div>
             <hr />
-            {/* {isAuthenticated ?
+            {isAuth ?
               <div className="logout" style={{marginTop:'20px'}} >
               <Button variant="outlined" color="error" onClick={handleLogout}>
-                {" "}
                 <IoMdLogOut /> <span style={{margin:'2px 0 0 3px'}}>Logout</span>
               </Button>
-            </div>: null} */}
+            </div>: null}
           </div>
         </div>
       }

@@ -91,6 +91,13 @@ letter-spacing: .001px;
 .map {
     margin: 50px 20% 0;
 }
+
+.directionArrow img {
+    height: 40px;
+    width: 240px;
+}
+
+
 @media screen and (max-width: 651px) {
     .mapcontainer{
         display: block;
