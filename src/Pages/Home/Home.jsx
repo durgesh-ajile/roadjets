@@ -7,6 +7,7 @@ import Knowus from "./Knowus";
 import afford from "../../assets/afford.png";
 import Faq from "../../Components/Faq/Faq.jsx";
 import "../../Components/Faq/Faq.css";
+import { Link } from "react-router-dom";
 
 const faqsData = [
   {
@@ -64,6 +65,14 @@ const faqsData = [
 ];
 
 const Home = () => {
+  //  const handleBookRide = async (e) => {
+  //   e.preventDefault();
+  //   try {
+
+  //   } catch (error) {
+
+  //   }
+  //  }
   return (
     <div className="home">
       <div className="heading">
@@ -77,13 +86,15 @@ const Home = () => {
         <p>Affordable,Safe,Simplified Travel Solutions</p>
       </div>
       <div className="home-btn signup-in">
-        <button id="login-btn">Book Ride</button>
-        <button
+        <Link to="/services?scrollTo=bookride-section">
+          <button id="login-btn">Book Ride</button>
+        </Link>
+        {/* <button
           id="signup-btn"
           style={{ background: "white", marginLeft: "10px" }}
         >
           View Pricing
-        </button>
+        </button> */}
       </div>
 
       <div className="ourservices">
@@ -91,13 +102,14 @@ const Home = () => {
           <div>
             <h1>Our Services</h1>
             <p>
-              {" "}
               Choose your destination, time & get an instant confirmation from
               our customer support.
             </p>
           </div>
           <div>
+            <Link to="/services?scrollTo=bookride-section">
             <button className="white-btn">View All</button>
+            </Link>
           </div>
         </div>
         <HomeService />

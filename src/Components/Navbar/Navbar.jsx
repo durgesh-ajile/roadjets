@@ -1,9 +1,8 @@
 // import React from 'react'
-import './Navbar.css'
+import "./Navbar.css";
 import { FaArrowRight } from "react-icons/fa6";
-import Logo from '../../assets/Logo.png'
-import { useLocation } from 'react-router-dom';
-
+import Logo from "../../assets/Logo.png";
+import { useLocation } from "react-router-dom";
 
 import React, { useEffect, useState } from "react";
 // import axios from "axios";
@@ -11,51 +10,167 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdLogOut } from "react-icons/io";
-
+import axios from "axios";
+import { Button } from "react-scroll";
+import toast, { Toaster } from "react-hot-toast";
 
 const Navbar = () => {
-
   const location = useLocation();
-  const selected = { borderRadius: "8px",
-    background: "var(--white-95, #F1F1F3)"}
+  const selected = {
+    borderRadius: "8px",
+    background: "var(--white-95, #F1F1F3)",
+  };
+  const [isAuth, setIsAuth] = useState(false);
+  const [userData, setUserData] = useState();
+  const token = localStorage.getItem("token");
+  // const [loading, setLoading] = useState(false);
+
+  console.log(userData);
+  useEffect(() => {
+    const checkAuthentication = async () => {
+      // setLoading(true);
+      try {
+        const response = await axios.get(
+          "https://roadjets.onrender.com/api/auth/check",
+          {
+            withCredentials: true,
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        if (response.status === 202) {
+          console.log(response);
+          // setLoading(false);
+          setIsAuth(true);
+          setUserData(response.data.user);
+        }
+      } catch (err) {
+        console.log(err.response);
+        // setLoading(false);
+        if (err.response.status === 401) {
+          setIsAuth(false);
+        }
+      }
+    };
+
+    checkAuthentication();
+  }, [token]);
+
+  const apilogOut = async () => {
+    localStorage.removeItem("token");
+    axios({
+      method: "post",
+      url: "https://roadjets.onrender.com/api/logout",
+      withCredentials: true,
+    })
+      .then((res) => {
+        console.log(res);
+        setIsAuth(false);
+        return "Logout successfully";
+      })
+      .catch((err) => {
+        console.log(err);
+        throw "Something went wrong";
+        // setLoading(false);
+      });
+  };
+
+  const handleLogout = async () => {
+    toast.promise(
+      apilogOut(),
+      {
+        loading: "Sign up...",
+        success: "Logout successfully",
+        error: "something went wrong",
+      },
+      {
+        style: {
+          minWidth: "250px",
+          backgroundColor: "black",
+          color: "white",
+        },
+        success: {
+          duration: 5000,
+          icon: "🚀",
+        },
+      }
+    );
+  };
+
   return (
-    
-    <div className='navbar'>
+    <div className="navbar">
+      <Toaster />
       <div className="nav-title">
-        <span style={{marginRight:"10px"}}>Register to unlock offer 🌟 on your first ride</span> 
-        <FaArrowRight id='arrow-icon'/>
+        <span style={{ marginRight: "10px" }}>
+          Register to unlock offer 🌟 on your first ride
+        </span>
+        <FaArrowRight id="arrow-icon" />
       </div>
       <div className="nav-links">
-        <div className="logo">
-          <img src={Logo}/>
-        </div>
+        <Link to="/">
+          <div className="logo">
+            <img src={Logo} />
+          </div>
+        </Link>
         <div className="links">
-          <div style={location.pathname === "/" ? selected : null}>Home</div>
-          <div style={location.pathname === "/services" ? selected : null}>Services</div>
-          <div style={location.pathname === "/about" ? selected : null}>About Us</div>
-          <div style={location.pathname === "/pricing" ? selected : null}>Pricing</div>
-          <div style={location.pathname === "/contact" ? selected : null}>Contact</div>
+          <Link className="navigatelink" to="/">
+            <div style={location.pathname === "/" ? selected : null}>Home</div>
+          </Link>
+          <Link className="navigatelink" to="/services">
+            <div style={location.pathname === "/services" ? selected : null}>
+              Services
+            </div>
+          </Link>
+          <Link className="navigatelink" to="/about">
+            <div style={location.pathname === "/about" ? selected : null}>
+              About Us
+            </div>
+          </Link>
+          {/* <div style={location.pathname === "/pricing" ? selected : null}>Pricing</div> */}
+          <Link className="navigatelink" to="/contactus">
+            <div style={location.pathname === "/contactus" ? selected : null}>
+              Contact Us
+            </div>
+          </Link>
         </div>
-        <div className="signup-in">
-          <button id='signup-btn'>Sign Up</button>
-          <button id='login-btn'>Login</button>
-        </div>
-        <div id='sidebar'>
-        <MobileNavbar />
+        {isAuth ? (
+          <div className="loggedUser">
+            <div className="user-welcome">
+              Welcome, User! {userData.FullName}
+            </div>
+            <button className="logoutbtn" onClick={handleLogout}>
+              Logout
+            </button>
+          </div>
+        ) : (
+          <div className="signup-in">
+            <Link className="navigatelink" to="/signup">
+              <button id="signup-btn">Sign Up</button>
+            </Link>
+            <Link className="navigatelink" to="/login">
+              <button id="login-btn">Login</button>
+            </Link>
+          </div>
+        )}
+
+        <div id="sidebar">
+          <MobileNavbar />
         </div>
       </div>
     </div>
-  )
-}
-
+  );
+};
 
 const MobileNavbar = ({
   userData,
   isAuthenticated,
   showPopup,
   setShowPopup,
-  select
+  select,
 }) => {
+  const [isAuth, setIsAuth] = useState(false)
   const [sidebarToggle, setSidebarToggle] = useState(true);
 
   const NavbarboxRef = useRef(null);
@@ -106,17 +221,12 @@ const MobileNavbar = ({
     <>
       <div className="Navbar_coontainer">
         <Link to="/">
-          <div className="Navbar_logo">
-            {/* <img src={logo} alt="" /> */}
-          </div>
+          <div className="Navbar_logo">{/* <img src={logo} alt="" /> */}</div>
         </Link>
-          <div
-            onClick={() => handleToggle()}
-            className="Navbar_hambergure_icon"
-          >
-            <h4 style={{ marginRight: "10px" }}></h4>
-            <GiHamburgerMenu />
-          </div>
+        <div onClick={() => handleToggle()} className="Navbar_hambergure_icon">
+          <h4 style={{ marginRight: "10px" }}></h4>
+          <GiHamburgerMenu />
+        </div>
       </div>
       {!sidebarToggle && (
         <div
@@ -137,38 +247,51 @@ const MobileNavbar = ({
             </div>
             <div className="Navbar_inputfield">
               <div>
-                <Link to="/" >
-                  <div className="nav-select" id={location.pathname === '/' ? 'side-select' :''} onClick={() => handleToggle()}>
+                <Link to="/">
+                  <div
+                    className="nav-select"
+                    id={location.pathname === "/" ? "side-select" : ""}
+                    onClick={() => handleToggle()}
+                  >
                     Home
                   </div>
                 </Link>
-                <Link to="/services" >
-                  <div className="nav-select" id={location.pathname === '/services' ? 'side-select' :''} onClick={() => handleToggle()}>
+                <Link to="/services">
+                  <div
+                    className="nav-select"
+                    id={location.pathname === "/services" ? "side-select" : ""}
+                    onClick={() => handleToggle()}
+                  >
                     Services
                   </div>
                 </Link>
                 <Link to="/about">
-                  <div className="nav-select" id={location.pathname === '/about' ? 'side-select' :''} onClick={() => handleToggle()}>
+                  <div
+                    className="nav-select"
+                    id={location.pathname === "/about" ? "side-select" : ""}
+                    onClick={() => handleToggle()}
+                  >
                     About Us
                   </div>
                 </Link>
-                <Link to="/contact">
-                  <div className="nav-select" id={location.pathname === '/contact' ? 'side-select' :''} onClick={() => handleToggle()}>
+                <Link to="/contactus">
+                  <div
+                    className="nav-select"
+                    id={location.pathname === "/contact" ? "side-select" : ""}
+                    onClick={() => handleToggle()}
+                  >
                     Contacts
                   </div>
                 </Link>
               </div>
-             
             </div>
             <hr />
-            {/* {isAuthenticated ?
+            {isAuth ?
               <div className="logout" style={{marginTop:'20px'}} >
               <Button variant="outlined" color="error" onClick={handleLogout}>
-                {" "}
                 <IoMdLogOut /> <span style={{margin:'2px 0 0 3px'}}>Logout</span>
               </Button>
-            </div>: null} */}
-            
+            </div>: null}
           </div>
         </div>
       }
@@ -176,6 +299,4 @@ const MobileNavbar = ({
   );
 };
 
-
-
-export default Navbar
+export default Navbar;
