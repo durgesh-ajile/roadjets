@@ -20,7 +20,7 @@ const HomeService = () => {
       });
 
       // Open the WhatsApp link in a new window
-      window.open(response.data.link, "_blank");
+      window.open(response.data.link, "_self");
     } catch (error) {
       console.log(error);
     }
