@@ -4,6 +4,7 @@ import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import "./GoogleMap.css";
 import { useRef } from "react";
 import axios from "axios";
+import mapimage from "../../assets/booknow.png"
 
 const MapContainer = () => {
   const windowWidth = useRef(window.innerWidth);
@@ -33,7 +34,7 @@ const MapContainer = () => {
       try {
         const response = await axios({
           method: "post",
-          url: "https://roadjets.onrender.com/api/get-whatapplink",
+          url: "https://curious-hare-jersey.cyclic.app/api/get-whatapplink",
           data: {
             toPhone: "+918975141294",
             message: `Hi! I want to request a ride from ${pickUp} to ${drop}. let me know for further info`,
@@ -52,7 +53,7 @@ const MapContainer = () => {
 
   return (
     <div className="mapcontainer">
-      <img src="../../../public/booknow.png" width="300" height="300" />
+      <img src={mapimage} width="300" height="300" />
       <div className="requestdiv">
         <input
           className="pickupinput"

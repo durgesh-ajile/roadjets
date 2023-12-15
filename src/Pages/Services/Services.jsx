@@ -11,6 +11,7 @@ import MapContainer from "../../Components/GoogleMap/GoogleMap";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import { scroller } from "react-scroll";
+import booknow from "../../assets/arrows.png";
 
 const timeData = [
   {
@@ -140,7 +141,7 @@ const Services = () => {
 
       const response = await axios({
         method: "post",
-        url: "https://roadjets.onrender.com/api/get-whatapplink",
+        url: "https://curious-hare-jersey.cyclic.app/api/get-whatapplink",
         data: {
           toPhone: "+918975141294",
           message: `Hii! I want to book a ride from ${finalLocation} ${preference}`,
@@ -165,7 +166,7 @@ const Services = () => {
             <div className="service-model" key={data.id} id={data.id}>
               <h2>{data.title}</h2>
               <div className="directionArrow">
-                <img src="/public/arrows.png"></img>
+                <img src={booknow}></img>
               </div>
               <div className="service-book">
                 <p>{data.text}</p>

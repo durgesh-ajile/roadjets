@@ -54,7 +54,7 @@ const Login = () => {
 
   const handleLogInGoogle = () => {
     try {
-      window.open("https://roadjets.onrender.com/api/auth/google", "_self");
+      window.open("https://curious-hare-jersey.cyclic.app/api/auth/google", "_self");
     } catch (error) {
       console.log(error);
     }
@@ -64,7 +64,7 @@ const Login = () => {
     try {
       const response = await axios({
         method: "post",
-        url: "https://roadjets.onrender.com/api/login",
+        url: "https://curious-hare-jersey.cyclic.app/api/login",
         data: {
           username: username,
           password: password,
@@ -95,8 +95,8 @@ const Login = () => {
         apiLogin(),
         {
           loading: "Sign up...",
-          success: "Signed up Successfully. Please log In",
-          error: (errorMessage) => `Failed to sign up: ${errorMessage}`,
+          success: "Logged in Successfully",
+          error: (errorMessage) => `Failed to Log in: ${errorMessage}`,
         },
         {
           style: {

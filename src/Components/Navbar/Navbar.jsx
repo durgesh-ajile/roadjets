@@ -31,7 +31,7 @@ const Navbar = () => {
       // setLoading(true);
       try {
         const response = await axios.get(
-          "https://roadjets.onrender.com/api/auth/check",
+          "https://curious-hare-jersey.cyclic.app/api/auth/check",
           {
             withCredentials: true,
             headers: {
@@ -62,7 +62,7 @@ const Navbar = () => {
     localStorage.removeItem("token");
     axios({
       method: "post",
-      url: "https://roadjets.onrender.com/api/logout",
+      url: "https://curious-hare-jersey.cyclic.app/api/logout",
       withCredentials: true,
     })
       .then((res) => {
