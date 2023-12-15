@@ -5,6 +5,7 @@ import { FaFacebook, FaLinkedin, FaPhoneAlt, FaTwitter } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const Contactus = () => {
   const [firstName, setFirstName] = useState("");
@@ -18,7 +19,7 @@ const Contactus = () => {
     try {
       const response = await axios({
         method: "POST",
-        url: "https://roadjets.onrender.com/api/contact-us",
+        url: "https://curious-hare-jersey.cyclic.app/api/contact-us",
         data: {
           firstName: firstName,
           lastName: lastName,
@@ -50,7 +51,7 @@ const Contactus = () => {
         style: {
           minWidth: "250px",
           backgroundColor: "black",
-          color: "white"
+          color: "white",
         },
         success: {
           duration: 5000,
@@ -178,15 +179,21 @@ const Contactus = () => {
           </div>
           <div className="socialprofile">
             <div className="combinesocial">
-              <div className="icons">
-                <FaFacebook />
-              </div>
-              <div className="icons">
-                <FaTwitter />
-              </div>
-              <div className="icons">
-                <FaLinkedin />
-              </div>
+              <Link style={{"color": "black"}}>
+                <div className="icons">
+                  <FaFacebook />
+                </div>
+              </Link>
+              <Link style={{"color": "black"}}>
+                <div className="icons">
+                  <FaTwitter />
+                </div>
+              </Link>
+              <Link style={{"color": "black"}} to="https://in.linkedin.com/company/roadjets">
+                <div className="icons">
+                  <FaLinkedin />
+                </div>
+              </Link>
             </div>
 
             <label>Social Profiles</label>
