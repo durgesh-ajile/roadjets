@@ -13,6 +13,7 @@ import { IoMdLogOut } from "react-icons/io";
 import axios from "axios";
 import { Button } from "react-scroll";
 import toast, { Toaster } from "react-hot-toast";
+import ContentLoader from "react-content-loader";
 
 const Navbar = () => {
   const location = useLocation();
@@ -23,12 +24,11 @@ const Navbar = () => {
   const [isAuth, setIsAuth] = useState(false);
   const [userData, setUserData] = useState();
   const token = localStorage.getItem("token");
-  // const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  console.log(userData);
   useEffect(() => {
     const checkAuthentication = async () => {
-      // setLoading(true);
+      setLoading(true);
       try {
         const response = await axios.get(
           "https://curious-hare-jersey.cyclic.app/api/auth/check",
@@ -42,13 +42,13 @@ const Navbar = () => {
 
         if (response.status === 202) {
           console.log(response);
-          // setLoading(false);
+          setLoading(false);
           setIsAuth(true);
           setUserData(response.data.user);
         }
       } catch (err) {
         console.log(err.response);
-        // setLoading(false);
+        setLoading(false);
         if (err.response.status === 401) {
           setIsAuth(false);
         }
@@ -99,6 +99,19 @@ const Navbar = () => {
     );
   };
 
+  const SkeletonLoader = () => (
+    <ContentLoader
+      speed={2}
+      width={180}
+      height={40}
+      viewBox="0 0 120 40"
+      backgroundColor="#D3D3D3"
+      foregroundColor="#ecebeb"
+    >
+      <rect x="0" y="0" rx="5" ry="5" width="120" height="40" />
+    </ContentLoader>
+  );
+
   return (
     <div className="navbar">
       <Toaster />
@@ -135,7 +148,10 @@ const Navbar = () => {
             </div>
           </Link>
         </div>
-        {isAuth ? (
+
+        {loading ? (
+          <SkeletonLoader />
+        ) : isAuth ? (
           <div className="loggedUser">
             <div className="user-welcome">
               Welcome, User! {userData.FullName}
@@ -170,7 +186,7 @@ const MobileNavbar = ({
   setShowPopup,
   select,
 }) => {
-  const [isAuth, setIsAuth] = useState(false)
+  const [isAuth, setIsAuth] = useState(false);
   const [sidebarToggle, setSidebarToggle] = useState(true);
 
   const NavbarboxRef = useRef(null);
@@ -256,7 +272,7 @@ const MobileNavbar = ({
                     Home
                   </div>
                 </Link>
-                <Link to="/services">
+                <Link to="/Services">
                   <div
                     className="nav-select"
                     id={location.pathname === "/services" ? "side-select" : ""}
@@ -265,7 +281,7 @@ const MobileNavbar = ({
                     Services
                   </div>
                 </Link>
-                <Link to="/about">
+                <Link to="/About">
                   <div
                     className="nav-select"
                     id={location.pathname === "/about" ? "side-select" : ""}
@@ -274,7 +290,7 @@ const MobileNavbar = ({
                     About Us
                   </div>
                 </Link>
-                <Link to="/contactus">
+                <Link to="/Contactus">
                   <div
                     className="nav-select"
                     id={location.pathname === "/contact" ? "side-select" : ""}
@@ -286,12 +302,14 @@ const MobileNavbar = ({
               </div>
             </div>
             <hr />
-            {isAuth ?
-              <div className="logout" style={{marginTop:'20px'}} >
-              <Button variant="outlined" color="error" onClick={handleLogout}>
-                <IoMdLogOut /> <span style={{margin:'2px 0 0 3px'}}>Logout</span>
-              </Button>
-            </div>: null}
+            {isAuth ? (
+              <div className="logout" style={{ marginTop: "20px" }}>
+                <Button variant="outlined" color="error" onClick={handleLogout}>
+                  <IoMdLogOut />{" "}
+                  <span style={{ margin: "2px 0 0 3px" }}>Logout</span>
+                </Button>
+              </div>
+            ) : null}
           </div>
         </div>
       }
