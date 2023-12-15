@@ -108,7 +108,7 @@ const Home = () => {
           </div>
           <div>
             <Link to="/services?scrollTo=bookride-section">
-            <button className="white-btn">View All</button>
+              <button className="white-btn">View All</button>
             </Link>
           </div>
         </div>
@@ -135,9 +135,11 @@ const Home = () => {
             uncompromised safety,quality on every road with RoadJets
           </h1>
         </div>
-        <div className="big-btn">
-          <button>Book Now !!</button>
-        </div>
+        <Link to="/services?scrollTo=bookride-section">
+          <div className="big-btn">
+            <button style={{ cursor: "pointer" }}>Book Now !!</button>
+          </div>
+        </Link>
       </div>
 
       <div className="faq">

@@ -275,7 +275,7 @@ const MobileNavbar = ({
                 <Link to="/Services">
                   <div
                     className="nav-select"
-                    id={location.pathname === "/services" ? "side-select" : ""}
+                    id={location.pathname === "/Services" ? "side-select" : ""}
                     onClick={() => handleToggle()}
                   >
                     Services
@@ -284,7 +284,7 @@ const MobileNavbar = ({
                 <Link to="/About">
                   <div
                     className="nav-select"
-                    id={location.pathname === "/about" ? "side-select" : ""}
+                    id={location.pathname === "/About" ? "side-select" : ""}
                     onClick={() => handleToggle()}
                   >
                     About Us
@@ -293,7 +293,7 @@ const MobileNavbar = ({
                 <Link to="/Contactus">
                   <div
                     className="nav-select"
-                    id={location.pathname === "/contact" ? "side-select" : ""}
+                    id={location.pathname === "/Contactus" ? "side-select" : ""}
                     onClick={() => handleToggle()}
                   >
                     Contacts
