@@ -50,7 +50,7 @@ const HomeService = () => {
         <img src={image1} />
         <div className="layer2">
           <div>
-            <button className="white-btn">WGL</button>
+            <button className="white-btn">KNR</button>
             <button className="white-btn">HYD</button>
           </div>
           <div style={{ marginTop: "20px" }}>24*7</div>
@@ -69,7 +69,7 @@ const HomeService = () => {
         <img src={image2} />
         <div className="layer2">
           <div>
-            <button className="white-btn">WGL</button>
+            <button className="white-btn">KHM</button>
             <button className="white-btn">HYD</button>
           </div>
           <div style={{ marginTop: "20px" }}>24*7</div>
@@ -88,7 +88,7 @@ const HomeService = () => {
         <img src={image3} />
         <div className="layer2">
           <div>
-            <button className="white-btn">WGL</button>
+            <button className="white-btn">NZB</button>
             <button className="white-btn">HYD</button>
           </div>
           <div style={{ marginTop: "20px" }}>24*7</div>
