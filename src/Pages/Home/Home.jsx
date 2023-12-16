@@ -8,6 +8,7 @@ import afford from "../../assets/afford.png";
 import Faq from "../../Components/Faq/Faq.jsx";
 import "../../Components/Faq/Faq.css";
 import { Link } from "react-router-dom";
+import RoadjetsBanner from "../../assets/Roadjetbanner.jpeg"
 
 const faqsData = [
   {
@@ -53,7 +54,7 @@ const faqsData = [
     id: 8,
     question: "Is the money refundable if I cancel the ride ?",
     answer:
-      "Yes, the money is refundable if canceled at least 1 hour prior to the departure time.",
+      "Yes, the money is refundable if canceled at least 2 hour prior to the departure time.",
   },
   {
     id: 9,
@@ -84,6 +85,10 @@ const Home = () => {
         </h1>
         <h2 className="head2">Connecting people to Unite.Heal.Inspire</h2>
         <p>Affordable,Safe,Simplified Travel Solutions</p>
+      </div>
+      <div className="roadjetbanner">
+        <img src={RoadjetsBanner}>
+        </img>
       </div>
       <div className="home-btn signup-in">
         <Link to="/services?scrollTo=bookride-section">
