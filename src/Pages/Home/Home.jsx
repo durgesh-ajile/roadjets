@@ -10,6 +10,7 @@ import "../../Components/Faq/Faq.css";
 import { Link } from "react-router-dom";
 import RoadjetsbannerThree from "../../assets/images__31_-removebg-preview.png";
 import RoadjetsbannerFour from "../../assets/images__32_-removebg.png";
+import Roadjetsfooter from "../../assets/Roadjetbanner.jpeg";
 
 const faqsData = [
   {
@@ -171,7 +172,9 @@ const Home = () => {
               Questions
             </div>
           </div>
-          <div className="square-box"></div>
+          <div className="square-box">
+            <img src={Roadjetsfooter} />
+          </div>
         </div>
         <div className="faq-child2">
           <div className="faq-list">

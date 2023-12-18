@@ -228,10 +228,15 @@
 }
 .square-box {
   margin: 40px 0 0 0;
-  width: 300px;
+  width: 380px;
   height: 280px;
   background: #fff500;
   border-radius: 12px;
+}
+
+.square-box img {
+  width: 380px;
+  height: 280px;
 }
 
 .faq-child1 {
@@ -257,6 +262,10 @@
   background-color: yellow;
   display: flex;
   justify-content: space-between;
+}
+
+.roadjetbanner img {
+  width: 50%;
 }
 
 .directionhomearrow {
@@ -378,6 +387,19 @@
   }
   .knowmodel-cont {
     width: 98%;
+  }
+
+  .square-box {
+    margin: 40px 0 0 0;
+    width: 300px;
+    height: 220px;
+    background: #fff500;
+    border-radius: 12px;
+  }
+  
+  .square-box img {
+    width: 300px;
+    height: 220px;
   }
 
   .roadjetbanner div {
