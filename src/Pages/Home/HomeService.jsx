@@ -5,6 +5,7 @@ import image2 from "../../assets/Image2.png";
 import image3 from "../../assets/Image3.png";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { LuArrowRightLeft } from "react-icons/lu";
 
 const HomeService = () => {
   const handleNizamabad = async (e) => {
@@ -32,9 +33,10 @@ const HomeService = () => {
         <div className="layer2">
           <div>
             <button className="white-btn">WGL</button>
+            <LuArrowRightLeft className="directionhomearrow" />
             <button className="white-btn">HYD</button>
           </div>
-          <div style={{ marginTop: "20px" }}>24*7</div>
+          {/* <div style={{ marginTop: "20px" }}>24*7</div> */}
         </div>
         <div className="layer3">
           <h3>Warangal</h3>
@@ -51,9 +53,10 @@ const HomeService = () => {
         <div className="layer2">
           <div>
             <button className="white-btn">KNR</button>
+            <LuArrowRightLeft className="directionhomearrow" />
             <button className="white-btn">HYD</button>
           </div>
-          <div style={{ marginTop: "20px" }}>24*7</div>
+          {/* <div style={{ marginTop: "20px" }}>24*7</div> */}
         </div>
         <div className="layer3">
           <h3>Karimnagar</h3>
@@ -70,9 +73,10 @@ const HomeService = () => {
         <div className="layer2">
           <div>
             <button className="white-btn">KHM</button>
+            <LuArrowRightLeft className="directionhomearrow" />
             <button className="white-btn">HYD</button>
           </div>
-          <div style={{ marginTop: "20px" }}>24*7</div>
+          {/* <div style={{ marginTop: "20px" }}>24*7</div> */}
         </div>
         <div className="layer3">
           <h3>Khammam</h3>
@@ -89,9 +93,10 @@ const HomeService = () => {
         <div className="layer2">
           <div>
             <button className="white-btn">NZB</button>
+            <LuArrowRightLeft className="directionhomearrow" />
             <button className="white-btn">HYD</button>
           </div>
-          <div style={{ marginTop: "20px" }}>24*7</div>
+          {/* <div style={{ marginTop: "20px" }}>24*7</div> */}
         </div>
         <div className="layer3">
           <h3>Nizamabad</h3>
