@@ -8,7 +8,8 @@ import afford from "../../assets/afford.png";
 import Faq from "../../Components/Faq/Faq.jsx";
 import "../../Components/Faq/Faq.css";
 import { Link } from "react-router-dom";
-import RoadjetsBanner from "../../assets/Roadjetbanner.jpeg"
+import RoadjetsbannerThree from "../../assets/images__31_-removebg-preview.png";
+import RoadjetsbannerFour from "../../assets/images__32_-removebg.png";
 
 const faqsData = [
   {
@@ -87,8 +88,10 @@ const Home = () => {
         <p>Affordable,Safe,Simplified Travel Solutions</p>
       </div>
       <div className="roadjetbanner">
-        <img src={RoadjetsBanner}>
-        </img>
+        <div>
+          <img src={RoadjetsbannerThree}></img>
+          <img src={RoadjetsbannerFour}></img>
+        </div>
       </div>
       <div className="home-btn signup-in">
         <Link to="/services?scrollTo=bookride-section">

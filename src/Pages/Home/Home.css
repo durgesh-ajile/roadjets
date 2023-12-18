@@ -240,137 +240,159 @@
   width: 400px;
   align-items: center;
 }
-#afford-btn{
+#afford-btn {
   width: 550px;
 }
 
 .roadjetbanner {
-  display:  flex;
+  display: flex;
   justify-content: center;
   margin: 50px 0 0 0;
 }
 
-.roadjetbanner img {
+.roadjetbanner div {
   height: 60%;
-  width: 80%;
+  width: 65%;
   border-radius: 20px;
+  background-color: yellow;
+  display: flex;
+  justify-content: space-between;
 }
 
-
+.directionhomearrow {
+  margin: 0 10px 0 0;
+}
 
 @media screen and (max-width: 651px) {
   .homeservice {
     grid-template-columns: auto;
-}
-#afford-btn{
-  width: 250px;
-  font-size: 25px;
-  height: 70px;
-}
-#over-btn{
-  width: 300px;
-  height: 70px;
-}
-.afford-text h1{
-  font-size: 20px;
-  text-align: center;
-}
-.big-btn button{
-  width: 280px;
-  font-size: 25px;
-  height: 60px;
-}
-.heading h1{
-  font-size: 28px;
-  margin: 0 20px;
-}
-.head2{
-  font-size: 23px;
-  margin: 10px;
-}
-.home-btn{
-  margin-top: 40px;
-}
-.white-btn {
-  padding: 14px 6px;
-  width: 74px;
-  font-size: 15px;
-}
-.why-all {
-  display: grid;
-  grid-template-columns: auto;
-}
-.head-serve h1{
-  margin-bottom: 20px;
-}
-.number {
-  height: 54px;
-}
-.arrow-img {
-  margin-top: 26px;
-}
+  }
+  #afford-btn {
+    width: 250px;
+    font-size: 25px;
+    height: 70px;
+  }
+  #over-btn {
+    width: 300px;
+    height: 70px;
+  }
+  .afford-text h1 {
+    font-size: 20px;
+    text-align: center;
+  }
+  .big-btn button {
+    width: 280px;
+    font-size: 25px;
+    height: 60px;
+  }
+  .heading h1 {
+    font-size: 28px;
+    margin: 0 20px;
+  }
+  .head2 {
+    font-size: 23px;
+    margin: 10px;
+  }
+  .home-btn {
+    margin-top: 40px;
+  }
+  .white-btn {
+    padding: 14px 6px;
+    width: 74px;
+    font-size: 15px;
+  }
+  .why-all {
+    display: grid;
+    grid-template-columns: auto;
+  }
+  .head-serve h1 {
+    margin-bottom: 20px;
+  }
+  .number {
+    height: 54px;
+  }
+  .arrow-img {
+    margin-top: 26px;
+  }
 
-.knowmodel-cont {
-  display: grid;
-  grid-template-columns: auto;
-}
-.head-serve{
-  display: block;
-}
+  .knowmodel-cont {
+    display: grid;
+    grid-template-columns: auto;
+  }
+  .head-serve {
+    display: block;
+  }
 
-.know1{
-  margin-top: 0;
-  margin-left: 0;
-}
-.knowus {
-  margin: 81px 0%;
-}
-.knowus .big-btn, .head-serve{
-  margin-left: 45px;
-}
-.know1 p {
-  padding: 0 0 0 22px;
-  margin-top: 0;
-}
-.know2{
-  /* padding: 20px; */
-  padding: 0 16px 30px;
-}
-.read{
-  width:155px;
-  text-align: center;
-}
+  .know1 {
+    margin-top: 0;
+    margin-left: 0;
+  }
+  .knowus {
+    margin: 81px 0%;
+  }
+  .knowus .big-btn,
+  .head-serve {
+    margin-left: 45px;
+  }
+  .know1 p {
+    padding: 0 0 0 22px;
+    margin-top: 0;
+  }
+  .know2 {
+    /* padding: 20px; */
+    padding: 0 16px 30px;
+  }
+  .read {
+    width: 155px;
+    text-align: center;
+  }
 
-.faq{
-  display: block;
-  margin: 120px 0 70px;
-}
-.frequently svg{
-  width: 300px;
-  height: 200px;
-}
-.in-frequently{
-  top: 74px;
+  .faq {
+    display: block;
+    margin: 120px 0 70px;
+  }
+  .frequently svg {
+    width: 300px;
+    height: 200px;
+  }
+  .in-frequently {
+    top: 74px;
     left: 59px;
     font-size: 23px;
     text-align: center;
-}
-.faq-child1{
-  width: auto;
-}
-.faq-item{
-  width: 87% !important;
-}
-.toggle-btn {
-   margin-left: 20px;
-}
-.ourservices .head-serve{
-  margin-left: 0;
-}
-.whyroadjets .head-serve{
-  margin-left: 0;
-}
-.knowmodel-cont {
-  width: 98%;
-}
+  }
+  .faq-child1 {
+    width: auto;
+  }
+  .faq-item {
+    width: 87% !important;
+  }
+  .toggle-btn {
+    margin-left: 20px;
+  }
+  .ourservices .head-serve {
+    margin-left: 0;
+  }
+  .whyroadjets .head-serve {
+    margin-left: 0;
+  }
+  .knowmodel-cont {
+    width: 98%;
+  }
+
+  .roadjetbanner div {
+    height: 60%;
+    width: 65%;
+    border-radius: 20px;
+    background-color: yellow;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .roadjetbanner img {
+    height: 70%;
+    width: 70%;
+  }
 }
