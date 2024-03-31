@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import RoadjetsbannerThree from "../../assets/images__31_-removebg-preview.png";
 import RoadjetsbannerFour from "../../assets/images__32_-removebg.png";
 import Roadjetsfooter from "../../assets/Roadjetbanner.jpeg";
-
+import wallet from '../../assets/wallet.png'
 const faqsData = [
   {
     id: 1,
@@ -129,7 +129,7 @@ const Home = () => {
 
       <div className="afford">
         <div className="afford-img">
-          <img src={afford} />
+          <img src={wallet} />
         </div>
         <div className="big-btn">
           <button id="over-btn">

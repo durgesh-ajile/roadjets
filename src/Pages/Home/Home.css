@@ -141,7 +141,13 @@
 .know-model {
   border-radius: 10px;
   padding: 20px 10px;
-  background: white;
+  background-color: #fff;
+}
+#know-model{
+  background-color: #fff500;
+}
+#know-model .read{
+  background-color: #F7F7F8;
 }
 .know1 {
   display: flex;
@@ -153,11 +159,17 @@
   padding: 0 40px;
   margin-top: 0;
 }
+.know-img{
+  font-size: 50px;
+  font-weight: 700;
+}
 .in-bold {
-  font-weight: 800;
+  font-weight: 600;
   color: var(--grey-30, #4c4c4d);
-  font-size: 16px;
+  font-size: 26px;
+  display: block;
   letter-spacing: 0.1px;
+  font: Be Vietnam Pro;
 }
 .know2 {
   display: flex;
@@ -176,11 +188,12 @@
   line-height: 150%;
   border-radius: 8px;
   border: 1px solid var(--white-95, #f1f1f3);
-  background: var(--white-97, #f7f7f8);
+  background: var(--white-97, #fff500);
   display: flex;
   padding: 14px 19px;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .afford {
@@ -349,7 +362,7 @@
   }
   .know2 {
     /* padding: 20px; */
-    padding: 0 16px 30px;
+    padding: 20px 16px 10px;
   }
   .read {
     width: 155px;
@@ -386,9 +399,21 @@
     margin-left: 0;
   }
   .knowmodel-cont {
-    width: 98%;
+    width: 96%;
+    margin: 0 2%;
   }
-
+  .mobile-yellow{
+background-color: #fff500 !important;
+  }
+  .mobile-yellow .read{
+    background-color: white;
+  }
+  .mobile-white{
+    background-color: white !important;
+  }
+  .know-img{
+    margin: 10px;
+  }
   .square-box {
     margin: 40px 0 0 0;
     width: 300px;

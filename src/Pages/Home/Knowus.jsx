@@ -8,7 +8,6 @@ import know5 from '../../assets/know5.png'
 import know6 from '../../assets/know6.png'
 import know7 from '../../assets/know7.png'
 
-
 const Knowus = () => {
   return (
     <div className='knowus'>
@@ -25,12 +24,13 @@ const Knowus = () => {
           </div>
         </div>
         <div className="knowmodel-cont">
-        <div className="know-model">
+        <div className="know-model mobile-yellow" id='know-model'>
           <div className="know1">
             <div className="know-img">
-              <img src={know} />
+              {/* <img src={know} /> */}
+              01
             </div>
-            <p><span className='in-bold'>Expert Reliable Pilots :</span> our pilots are more than drivers – they are dedicated professionals trained to provide a superior travel experience. Rigorous training programs ensure their expertise in safety, customer service, and efficient navigation.</p>
+            <p><span className='in-bold'>Expert Reliable Pilots </span> our pilots are more than drivers – they are dedicated professionals trained to provide a superior travel experience. Rigorous training programs ensure their expertise in safety, customer service, and efficient navigation.</p>
           </div>
           <div className="know2">
             <div className="expert">
@@ -42,12 +42,13 @@ const Knowus = () => {
           </div>
 
         </div>
-        <div className="know-model">
+        <div className="know-model mobile-white">
           <div className="know1">
             <div className="know-img">
-              <img src={know1} />
+              {/* <img src={know1} /> */}
+              02
             </div>
-            <p><span className='in-bold'> Proactive Issue Investigation: </span> When an issue arises, be it minor inconveniences or unforeseen challenges, Roadjets is committed to investigating the matter promptly and comprehensively.</p>
+            <p><span className='in-bold'> Proactive Issue Investigation </span> When an issue arises, be it minor inconveniences or unforeseen challenges, Roadjets is committed to investigating the matter promptly and comprehensively.</p>
           </div>
           <div className="know2">
             <div className="expert">
@@ -58,12 +59,13 @@ const Knowus = () => {
           </div>
 
         </div>
-        <div className="know-model">
+        <div className="know-model mobile-yellow" >
           <div className="know1">
             <div className="know-img">
-              <img src={know2} />
+              {/* <img src={know2} /> */}
+              03
             </div>
-            <p><span className='in-bold'> Ensuring Women's Safety:</span>  Roadjets is dedicated to ensuring the safety of all passengers, especially women. We recognize the concerns that women may have while traveling alone. the whole journey is monitored by CCTV’s</p>
+            <p><span className='in-bold'> Ensuring Women's Safety</span>  Roadjets is dedicated to ensuring the safety of all passengers, especially women. We recognize the concerns that women may have while traveling alone. the whole journey is monitored by CCTV’s</p>
           </div>
           <div className="know2">
             <div className="expert">
@@ -74,12 +76,13 @@ const Knowus = () => {
           </div>
 
         </div>
-        <div className="know-model">
+        <div className="know-model mobile-white" id='know-model'>
           <div className="know1">
             <div className="know-img">
-              <img src={know3} />
+              {/* <img src={know3} /> */}
+              04
             </div>
-            <p><span className='in-bold'> Imposing Time Discipline: </span>We take punctuality seriously and are unwavering in our commitment to providing punctual services. Our approach involves charging fines for both drivers and travelers in case of delays.</p>
+            <p><span className='in-bold'> Imposing Time Discipline </span>We take punctuality seriously and are unwavering in our commitment to providing punctual services. Our approach involves charging fines for both drivers and travelers in case of delays.</p>
           </div>
           <div className="know2">
             <div className="expert">
@@ -90,12 +93,13 @@ const Knowus = () => {
           </div>
 
         </div>
-        <div className="know-model">
+        <div className="know-model mobile-yellow" id='know-model'> 
           <div className="know1">
             <div className="know-img">
-              <img src={know4} />
+              {/* <img src={know4} /> */}
+              05
             </div>
-            <p><span className='in-bold'>  d) Compensation for Loss:  </span>unexpected events can result in inconveniences and losses for passengers.we offer compensation for losses incurred due to issues that may arise during the journey.</p>
+            <p><span className='in-bold'> Compensation for Loss  </span>unexpected events can result in inconveniences and losses for passengers.we offer compensation for losses incurred due to issues that may arise during the journey.</p>
           </div>
           <div className="know2">
             <div className="expert">
@@ -106,12 +110,13 @@ const Knowus = () => {
           </div>
 
         </div>
-        <div className="know-model">
+        <div className="know-model mobile-white">
           <div className="know1">
             <div className="know-img">
-              <img src={know5} />
+              {/* <img src={know5} /> */}
+              06
             </div>
-            <p><span className='in-bold'> Zero Tolerance For Disruptive Behaviour: </span>By maintaining a "Zero Tolerance" approach towards disruptive behaviors, Roadjets aim to create a comfortable and respectful environment for all travelers.</p>
+            <p><span className='in-bold'> Zero Tolerance For Disruptive Behaviour </span>By maintaining a "Zero Tolerance" approach towards disruptive behaviors, Roadjets aim to create a comfortable and respectful environment for all travelers.</p>
           </div>
           <div className="know2">
             <div className="expert">
@@ -122,12 +127,13 @@ const Knowus = () => {
           </div>
 
         </div>
-        <div className="know-model">
+        <div className="know-model mobile-yellow" >
           <div className="know1">
             <div className="know-img">
-              <img src={know6} />
+              {/* <img src={know6} /> */}
+              07
             </div>
-            <p><span className='in-bold'>  Personalized Experience: </span> Roadjets recognizes the importance of a personalized experience. Passengers can specify their preferences for facilities, amenities, and any special requirements they may have.</p>
+            <p><span className='in-bold'>  Personalized Experience </span> Roadjets recognizes the importance of a personalized experience. Passengers can specify their preferences for facilities, amenities, and any special requirements they may have.</p>
           </div>
           <div className="know2">
             <div className="expert">
@@ -138,12 +144,13 @@ const Knowus = () => {
           </div>
 
         </div>
-        <div className="know-model">
+        <div className="know-model mobile-white" id='know-model'>
           <div className="know1">
             <div className="know-img">
-              <img src={know7} />
+              {/* <img src={know7} /> */}
+              08
             </div>
-            <p><span className='in-bold'>  Immediate Response & Scheduling:  </span>Roadjets place immense value on the immediate response and scheduling of rides,
+            <p><span className='in-bold'>  Immediate Response & Scheduling  </span>Roadjets place immense value on the immediate response and scheduling of rides,
 recognizing that timely communication and efficient scheduling are crucial to delivering a top-tier experience</p>
           </div>
           <div className="know2">

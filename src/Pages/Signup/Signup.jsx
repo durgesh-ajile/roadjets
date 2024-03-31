@@ -6,6 +6,7 @@ import { Toaster } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useSpring, animated } from "react-spring";
+import mayuri from '../../assets/temp.png'
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -14,11 +15,13 @@ const Signup = () => {
   const testimonials = [
     {
       text: "Being a female traveller, I often faced issues like safety. Taking a nap while traveling was a challenge. Now I can happily rely on RoadJett without any fear. The best part is that they always have a female prevention system.",
-      user: "Pranitha (Software Techie @Microsoft)",
+      user: "Mayuri Rao (techie @Microsoft)",
+      img: mayuri
     },
     {
       text: "Thank you Roadjets for making intercity travel simple quicker and affordable. I often faced the problem to go to my office at gachibowli because of multiple modes of transportation i have to take leading to high cost and time",
       user: "Vishwak Reddy (operation manager @phenome)",
+      img: "https://img.icons8.com/ios-filled/50/F25081/standing-woman.png"
     },
     // Add more testimonials as needed
   ];
@@ -128,7 +131,7 @@ const Signup = () => {
               <img
                 width="50"
                 height="50"
-                src="https://img.icons8.com/ios-filled/50/F25081/standing-woman.png"
+                src={testimonials[currentTestimonialIndex].img}
                 alt="standing-woman"
                 className="womensvg"
               />

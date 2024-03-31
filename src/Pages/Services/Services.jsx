@@ -9,7 +9,7 @@ import Karimnagar from "../../assets/Karimnagar.png";
 import Kammar from "../../assets/Kammam.png";
 import MapContainer from "../../Components/GoogleMap/GoogleMap";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { scroller } from "react-scroll";
 import booknow from "../../assets/arrows.png";
 
@@ -66,7 +66,7 @@ const timeData = [
   },
 ];
 
-const serviceData = [
+const data = [
   {
     id: 1,
     title: "Hyderabad(gachibowli circle) - Warangal",
@@ -77,6 +77,7 @@ const serviceData = [
     shortDescription: "Via ORR-3h: 30 min - A/C - Female Preference",
     img1: warangal1,
     img2: warangal2,
+    code: "GBC-WGL"
   },
   {
     id: 2,
@@ -88,6 +89,7 @@ const serviceData = [
     shortDescription: "Via NH 163 -2h: 30 min - A/C - Female Preference",
     img1: warangal3,
     img2: warangal2,
+    code: "UPL-WGL"
   },
   {
     id: 3,
@@ -99,6 +101,7 @@ const serviceData = [
     shortDescription: "Via SH 01 -3h: 30 min - A/C - Female Preference",
     img1: warangal1,
     img2: Karimnagar,
+    code: "GBC-KNR"
   },
   {
     id: 4,
@@ -110,10 +113,13 @@ const serviceData = [
     shortDescription: "Via ORR 3h:00 min A/C",
     img1: warangal1,
     img2: Kammar,
+    code: "KMM-WGL"
   },
 ];
 const Services = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+  const [serviceData, setServiceData] = useState('')
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -153,66 +159,287 @@ const Services = () => {
     } catch (error) {
       console.log(error);
     }
+    console.log("clicked")
+
   };
 
-  return (
+  const getBookingData = async () => {
+    try {
+      let Sdata = await axios({
+        method: "get",
+        url: "https://curious-hare-jersey.cyclic.app/api/getBookingService"
+      })
+      setServiceData(Sdata.data.data)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  useEffect(() => {
+    getBookingData()
+  }, [])
+
+  console.log(serviceData)
+
+  return (serviceData ?
     <div className="services">
       <div className="map">
         <MapContainer />
       </div>
       <div className="all-service" id="bookride-section">
-        {serviceData.map((data) => {
-          return (
-            <div className="service-model" key={data.id} id={data.id}>
-              <h2>{data.title}</h2>
-              <div className="directionArrow">
-                <img src={booknow}></img>
-              </div>
-              <div className="service-book">
-                <p>{data.text}</p>
-                <div>
-                  <button
-                    id="login-btn"
-                    onClick={(e) => {
-                      handleBook(e, data.location, data.shortDescription);
-                    }}
-                  >
-                    Book Now
-                  </button>
-                </div>
-              </div>
-              <div className="service-img">
-                <div className="img1">
-                  <img src={data.img1} />
-                </div>
-                <div className="img2">
-                  <img src={data.img2} />
-                </div>
-              </div>
-              <div className="yellow">
-                <div className="location">
-                  <span>{data.shortFormStartLocation}</span>
-                  <span>{data.shortFormEndLocation}</span>
-                </div>
-                <div className="time">{data.shortDescription}</div>
-              </div>
-              <div className="yellow2">{data.location}</div>
-              <div className="time-box">
-                {timeData.map((data) => {
-                  return (
-                    <div className="solo-time">
-                      <h3>{data.time}</h3>
-                      <div>{data.car}</div>
-                      <div>{data.model}</div>
-                    </div>
-                  );
-                })}
-              </div>
+      <div className="service-model" key={data[0].id} id={data[0].id}>
+          <h2>{serviceData[0].title}</h2>
+          <div className="directionArrow">
+            <img src={booknow}></img>
+          </div>
+          <div className="service-book">
+            <p>{serviceData[0].text}</p>
+            <div>
+              <button
+                id="login-btn"
+                onClick={(e) => {
+                  // handleBook(e, data.location, data.shortDescription);
+                  navigate(`/book?route=${data[0].code}`)
+                }}
+              >
+                Book Now
+              </button>
             </div>
-          );
-        })}
+          </div>
+          <div className="service-img">
+            <div className="img1">
+              <img src={data[0].img1} />
+            </div>
+            <div className="img2">
+              <img src={data[0].img2} />
+            </div>
+          </div>
+          <div className="yellow">
+            <div className="location">
+              <span>{serviceData[0].shortFormStartLocation}</span>
+              <span>{serviceData[0].shortFormEndLocation}</span>
+            </div>
+            <div className="time">{serviceData[0].shortDescription}</div>
+          </div>
+          <div className="yellow2">{serviceData[0].location}</div>
+          <div className="time-box" >
+            {serviceData[0].pickUpTiming.map((data) => {
+              return (
+                <div className="solo-time">
+                  <h3>{data.time}</h3>
+                  <div>{data.car}</div>
+                  <div>{data.model}</div>
+                  <div>{data.review} ({data.rating}🌟)</div>
+                </div>
+              );
+            })}
+
+          </div>
+          <div className="yellow2" style={{ margin: "0" }}>{serviceData[0].location}</div>
+          <div className="time-box">
+            {serviceData[0].dropUpTiming.map((data) => {
+              return (
+                <div className="solo-time">
+                  <h3>{data.time}</h3>
+                  <div>{data.car}</div>
+                  <div>{data.model}</div>
+                  <div>{data.review} ({data.rating}🌟)</div>
+                </div>
+              );
+            })}
+
+          </div>
+        </div>
+        <div className="service-model" key={data[1].id} id={data[1].id}>
+          <h2>{serviceData[1].title}</h2>
+          <div className="directionArrow">
+            <img src={booknow}></img>
+          </div>
+          <div className="service-book">
+            <p>{serviceData[1].text}</p>
+            <div>
+              <button
+                id="login-btn"
+                onClick={(e) => {
+                  // handleBook(e, data.location, data.shortDescription);
+                  navigate(`/book?route=${data[1].code}`)
+                }}
+              >
+                Book Now
+              </button>
+            </div>
+          </div>
+          <div className="service-img">
+            <div className="img1">
+              <img src={data[1].img1} />
+            </div>
+            <div className="img2">
+              <img src={data[1].img2} />
+            </div>
+          </div>
+          <div className="yellow">
+            <div className="location">
+              <span>{serviceData[1].shortFormStartLocation}</span>
+              <span>{serviceData[1].shortFormEndLocation}</span>
+            </div>
+            <div className="time">{serviceData[1].shortDescription}</div>
+          </div>
+          <div className="yellow2">{serviceData[1].location}</div>
+          <div className="time-box" >
+            {serviceData[1].pickUpTiming.map((data) => {
+              return (
+                <div className="solo-time">
+                  <h3>{data.time}</h3>
+                  <div>{data.car}</div>
+                  <div>{data.model}</div>
+                  <div>{data.review} ({data.rating}🌟)</div>
+                </div>
+              );
+            })}
+
+          </div>
+          <div className="yellow2" style={{ margin: "0" }}>{serviceData[1].location}</div>
+          <div className="time-box">
+            {serviceData[1].dropUpTiming.map((data) => {
+              return (
+                <div className="solo-time">
+                  <h3>{data.time}</h3>
+                  <div>{data.car}</div>
+                  <div>{data.model}</div>
+                  <div>{data.review} ({data.rating}🌟)</div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+        <div className="service-model" key={data[2].id} id={data[2].id}>
+          <h2>{serviceData[2].title}</h2>
+          <div className="directionArrow">
+            <img src={booknow}></img>
+          </div>
+          <div className="service-book">
+            <p>{serviceData[2].text}</p>
+            <div>
+              <button
+                id="login-btn"
+                onClick={(e) => {
+                  // handleBook(e, data.location, data.shortDescription);
+                  navigate(`/book?route=${data[2].code}`)
+                }}
+              >
+                Book Now
+              </button>
+            </div>
+          </div>
+          <div className="service-img">
+            <div className="img1">
+              <img src={data[2].img1} />
+            </div>
+            <div className="img2">
+              <img src={data[2].img2} />
+            </div>
+          </div>
+          <div className="yellow">
+            <div className="location">
+              <span>{serviceData[2].shortFormStartLocation}</span>
+              <span>{serviceData[2].shortFormEndLocation}</span>
+            </div>
+            <div className="time">{serviceData[2].shortDescription}</div>
+          </div>
+          <div className="yellow2">{serviceData[2].location}</div>
+          <div className="time-box" >
+            {serviceData[2].pickUpTiming.map((data) => {
+              return (
+                <div className="solo-time">
+                  <h3>{data.time}</h3>
+                  <div>{data.car}</div>
+                  <div>{data.model}</div>
+                  <div>{data.review} ({data.rating}🌟)</div>
+                </div>
+              );
+            })}
+
+          </div>
+          <div className="yellow2" style={{ margin: "0" }}>{serviceData[2].location}</div>
+          <div className="time-box">
+            {serviceData[2].dropUpTiming.map((data) => {
+              return (
+                <div className="solo-time">
+                  <h3>{data.time}</h3>
+                  <div>{data.car}</div>
+                  <div>{data.model}</div>
+                  <div>{data.review} ({data.rating}🌟)</div>
+                </div>
+              );
+            })}
+
+          </div>
+        </div>
+        <div className="service-model" key={data[3].id} id={data[3].id}>
+          <h2>{serviceData[3].title}</h2>
+          <div className="directionArrow">
+            <img src={booknow}></img>
+          </div>
+          <div className="service-book">
+            <p>{serviceData[3].text}</p>
+            <div>
+              <button
+                id="login-btn"
+                onClick={(e) => {
+                  // handleBook(e, data.location, data.shortDescription);
+                  navigate(`/book?route=${data[3].code}`)
+                }}
+              >
+                Book Now
+              </button>
+            </div>
+          </div>
+          <div className="service-img">
+            <div className="img1">
+              <img src={data[3].img1} />
+            </div>
+            <div className="img2">
+              <img src={data[3].img2} />
+            </div>
+          </div>
+          <div className="yellow">
+            <div className="location">
+              <span>{serviceData[3].shortFormStartLocation}</span>
+              <span>{serviceData[3].shortFormEndLocation}</span>
+            </div>
+            <div className="time">{serviceData[3].shortDescription}</div>
+          </div>
+          <div className="yellow2">{serviceData[3].location}</div>
+          <div className="time-box" >
+            {serviceData[3].pickUpTiming.map((data) => {
+              return (
+                <div className="solo-time">
+                  <h3>{data.time}</h3>
+                  <div>{data.car}</div>
+                  <div>{data.model}</div>
+                  <div>{data.review} ({data.rating}🌟)</div>
+                </div>
+              );
+            })}
+
+          </div>
+          <div className="yellow2" style={{ margin: "0" }}>{serviceData[3].location}</div>
+          <div className="time-box">
+            {serviceData[3].dropUpTiming.map((data) => {
+              return (
+                <div className="solo-time">
+                  <h3>{data.time}</h3>
+                  <div>{data.car}</div>
+                  <div>{data.model}</div>
+                  <div>{data.review} ({data.rating}🌟)</div>
+                </div>
+              );
+            })}
+
+          </div>
+        </div>
       </div>
-    </div>
+    </div> : null
   );
 };
 
