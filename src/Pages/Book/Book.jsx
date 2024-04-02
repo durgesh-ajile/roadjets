@@ -108,12 +108,12 @@ const allRides = [
         ride1: {
             from: "Hyderabad(gachibowli circle)",
             to: "Warangal",
-            code: "g2w"
+            code: "HYD(GACHIBOWLI)-WGL"
         },
         ride2: {
             from: "Warangal",
             to: "Hyderabad(gachibowli circle)",
-            code: "w2g"
+            code: "WGL-HYD(GACHIBOWLI)"
         }
     },
     {
@@ -121,12 +121,12 @@ const allRides = [
         ride1: {
             from: "Hyderabad (Uppal)",
             to: "Warangal",
-            code: "u2w"
+            code: "HYD(UPPAL)-WGL"
         },
         ride2: {
             from: "Warangal",
             to: "Hyderabad (Uppal)",
-            code: "w2u"
+            code: "WGL-HYD(UPPAL)"
         }
     },
     {
@@ -134,12 +134,12 @@ const allRides = [
         ride1: {
             from: "Hyderabad(gachibowli circle)",
             to: "Karimnagar",
-            code: "g2k"
+            code: "HYD-KNR"
         },
         ride2: {
             from: "Karimnagar",
             to: "Hyderabad(gachibowli circle)",
-            code: "k2g"
+            code: "KNR-HYD"
         }
     },
     {
@@ -147,12 +147,12 @@ const allRides = [
         ride1: {
             from: "Hyderabad(gachibowli circle)",
             to: "Kammam",
-            code: "g2km"
+            code: "HYD-KHM"
         },
         ride2: {
             from: "Kammam",
             to: "Hyderabad(gachibowli circle)",
-            code: "km2h"
+            code: "KHM-HYD"
         }
     }
 ]
@@ -169,22 +169,23 @@ const Book = () => {
     const [seats, setSeats] = React.useState("Select");
     const [routeData, setRouteData] = React.useState("");
     const [filteredData, setFilteredData] = React.useState("");
-    const [loading, setLoading] = React.useState("");
+    const [loading, setLoading] = React.useState(false);
+    const [bookingTiming, setBookingTiming] = useState([])
 
 
     const getRouteData = async () => {
         try {
-          let Sdata = await axios({
-            method: "get",
-            url: "https://curious-hare-jersey.cyclic.app/api/getBookingService"
-          })
-          setRouteData(Sdata.data.data)
+            let Sdata = await axios({
+                method: "get",
+                url: "https://curious-hare-jersey.cyclic.app/api/getBookingService"
+            })
+            setRouteData(Sdata.data.data)
         } catch (err) {
-          console.log(err)
+            console.log(err)
         }
-      }
-    
-      
+    }
+
+    console.log(routeData)
     const navigate = useNavigate()
 
     // const { route } = useParams();
@@ -247,14 +248,28 @@ const Book = () => {
         setLocation(route)
     }, [route])
     useEffect(() => {
-        if(routeData){
+        if (routeData) {
             let filter = routeData.filter((val) => {
-                return "w2g" === route
+                if (location === val.routeOne || location === val.routeTwo) {
+                    return val;
+                }
             })
+
+            console.log(filter)
+            allRides.forEach(element => {
+                console.log(element.ride1.code === location)
+                if (element.ride1.code === location) {
+                    setBookingTiming(filter[0]?.pickUpTiming)
+                } 
+                if(element.ride2.code === location){
+                    setBookingTiming(filter[0]?.dropUpTiming)
+                }
+            });
             setFilteredData(filter)
         }
-    }, [routeData])
-    console.log(filteredData)
+    }, [routeData, location])
+
+
 
     return (
         <div className='book'>
@@ -310,14 +325,14 @@ const Book = () => {
                         <MenuItem value="Select">
                             <em>Select</em>
                         </MenuItem>
-                        <MenuItem value='g2w'>Hyderabad(gachibowli circle) to Warangal</MenuItem>
-                        <MenuItem value='w2g'>Warangal to Hyderabad(gachibowli circle)</MenuItem>
-                        <MenuItem value='u2w'>Hyderabad (Uppal) - Warangal</MenuItem>
-                        <MenuItem value='w2u'>Warangal to Hyderabad (Uppal)</MenuItem>
-                        <MenuItem value='g2k'>Hyderabad(gachibowli circle) - Karimnagar</MenuItem>
-                        <MenuItem value='k2g'>Karimnagar to Hyderabad(gachibowli circle)</MenuItem>
-                        <MenuItem value='g2km'>Hyderabad(gachibowli circle) - Kammam</MenuItem>
-                        <MenuItem value='km2h'>Kammam to Hyderabad(gachibowli circle)</MenuItem>
+                        <MenuItem value='HYD(GACHIBOWLI)-WGL'>Hyderabad(gachibowli circle) to Warangal</MenuItem>
+                        <MenuItem value='WGL-HYD(GACHIBOWLI)'>Warangal to Hyderabad(gachibowli circle)</MenuItem>
+                        <MenuItem value='HYD(UPPAL)-WGL'>Hyderabad (Uppal) - Warangal</MenuItem>
+                        <MenuItem value='WGL-HYD(UPPAL)'>Warangal to Hyderabad (Uppal)</MenuItem>
+                        <MenuItem value='HYD-KNR'>Hyderabad(gachibowli circle) - Karimnagar</MenuItem>
+                        <MenuItem value='KNR-HYD'>Karimnagar to Hyderabad(gachibowli circle)</MenuItem>
+                        <MenuItem value='HYD-KHM'>Hyderabad(gachibowli circle) - Kammam</MenuItem>
+                        <MenuItem value='KHM-HYD'>Kammam to Hyderabad(gachibowli circle)</MenuItem>
                     </Select>
                 </div>
                 <div className="choose-date">
@@ -369,23 +384,23 @@ const Book = () => {
             </div>
 
 
-            {(!loading && routeData) ? (<div className="choose-cab">
+            {(!loading && filteredData) ? (<div className="choose-cab">
                 <div className="yellow">
                     <div className="location">
-                        <span>{routeData.shortFormStartLocation}</span>
-                        <span>{routeData.shortFormEndLocation}</span>
+                        <span>{filteredData[0]?.shortFormStartLocation}</span>
+                        <span>{filteredData[0]?.shortFormEndLocation}</span>
                     </div>
-                    <div className="time">{routeData.shortDescription}</div>
+                    <div className="time">{filteredData[0]?.shortDescription}</div>
                 </div>
-                <div className="yellow2">{routeData.location}</div>
+                <div className="yellow2">{filteredData[0]?.location}</div>
                 <div className="time-box">
-                    {timeData.map((data) => {
+                    {bookingTiming?.map((data) => {
                         return (
                             <div className="solo-time" id='solo-time' onClick={handleNavigate}>
                                 <h3>{data.time}</h3>
                                 <div>{data.car}</div>
                                 <div>{data.model}</div>
-                                <div style={{color:"red"}}>{data.left} seats left</div>
+                                <div style={{ color: "red" }}>{data.left} seats left</div>
                             </div>
                         );
                     })}
