@@ -241,7 +241,7 @@ const Book = () => {
 
     const getAvailiability = await axios({
       method: "GET",
-      url: `http://localhost:3000/api/checkavailiability?bookDate=${bookDate}&timing=${time}&route=${location}`,
+      url: `https://curious-hare-jersey.cyclic.app/api/checkavailiability?bookDate=${bookDate}&timing=${time}&route=${location}`,
     });
 
     if (getAvailiability.status === 201) {
@@ -323,7 +323,7 @@ const Book = () => {
       try {
         const response = await axios({
           method: "POST",
-          url: "http://localhost:3000/api/create/order",
+          url: "https://curious-hare-jersey.cyclic.app/api/create/order",
           data: {
             amount: totalAmount,
             bookRide: location,
@@ -352,7 +352,7 @@ const Book = () => {
           image:
             "https://media.licdn.com/dms/image/D560BAQFojamwsLveVg/company-logo_200_200/0/1684227273836?e=1713398400&v=beta&t=5MWfqSsocKfikksEcYIxHadnUq2i2eWFQ4rrBL3VYl8",
           order_id: order.order.id,
-          callback_url: `http://localhost:3000/api/payment/verify`,
+          callback_url: `https://curious-hare-jersey.cyclic.app/api/payment/verify`,
           prefill: {
             name: order.order.notes.name,
             email: order.order.notes.email,
