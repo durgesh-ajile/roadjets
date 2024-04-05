@@ -1,17 +1,17 @@
-import React from "react";
 import { BsFillLightningChargeFill } from "react-icons/bs";
 import "./Home.css";
 import HomeService from "./HomeService";
 import WhyRoadjets from "./WhyRoadjets";
 import Knowus from "./Knowus";
-import afford from "../../assets/afford.png";
+
 import Faq from "../../Components/Faq/Faq.jsx";
 import "../../Components/Faq/Faq.css";
 import { Link } from "react-router-dom";
-import RoadjetsbannerThree from "../../assets/images__31_-removebg-preview.png";
-import RoadjetsbannerFour from "../../assets/images__32_-removebg.png";
+
 import Roadjetsfooter from "../../assets/Roadjetbanner.jpeg";
-import wallet from '../../assets/wallet.png'
+import wallet from "../../assets/wallet.png";
+import RoadjetsBanner from "../../assets/mid journey .png";
+
 const faqsData = [
   {
     id: 1,
@@ -89,10 +89,7 @@ const Home = () => {
         <p>Affordable,Safe,Simplified Travel Solutions</p>
       </div>
       <div className="roadjetbanner">
-        <div>
-          <img src={RoadjetsbannerThree}></img>
-          <img src={RoadjetsbannerFour}></img>
-        </div>
+        <img src={RoadjetsBanner}></img>
       </div>
       <div className="home-btn signup-in">
         <Link to="/services?scrollTo=bookride-section">
