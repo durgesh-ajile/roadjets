@@ -323,10 +323,7 @@
     width: 74px;
     font-size: 15px;
   }
-  .why-all {
-    display: grid;
-    grid-template-columns: auto;
-  }
+  
   .head-serve h1 {
     margin-bottom: 20px;
   }
@@ -337,10 +334,7 @@
     margin-top: 26px;
   }
 
-  .knowmodel-cont {
-    display: grid;
-    grid-template-columns: auto;
-  }
+
   .head-serve {
     display: block;
   }
@@ -369,10 +363,7 @@
     text-align: center;
   }
 
-  .faq {
-    display: block;
-    margin: 120px 0 70px;
-  }
+  
   .frequently svg {
     width: 300px;
     height: 200px;
@@ -383,9 +374,7 @@
     font-size: 23px;
     text-align: center;
   }
-  .faq-child1 {
-    width: auto;
-  }
+  
   .faq-item {
     width: 87% !important;
   }
@@ -398,22 +387,7 @@
   .whyroadjets .head-serve {
     margin-left: 0;
   }
-  .knowmodel-cont {
-    width: 96%;
-    margin: 0 2%;
-  }
-  .mobile-yellow{
-background-color: #fff500 !important;
-  }
-  .mobile-yellow .read{
-    background-color: white;
-  }
-  .mobile-white{
-    background-color: white !important;
-  }
-  .know-img{
-    margin: 10px;
-  }
+  
   .square-box {
     margin: 40px 0 0 0;
     width: 300px;
@@ -441,5 +415,42 @@ background-color: #fff500 !important;
   .roadjetbanner img {
     height: 70%;
     width: 70%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .faq {
+    display: block;
+    margin: 120px 0 70px;
+  }
+  .faq-child1 {
+    width: auto;
+  }
+  .why-all {
+    display: grid;
+    grid-template-columns: auto;
+  }
+  .knowmodel-cont {
+    display: grid;
+    grid-template-columns: auto;
+  }
+  .knowmodel-cont {
+    width: 96%;
+    margin: 0 2%;
+  }
+  .mobile-yellow{
+    background-color: #fff500 !important;
+  }
+  .mobile-yellow .read{
+    background-color: white;
+  }
+  .mobile-white{
+    background-color: white !important;
+  }
+  .mobile-white .read{
+    background-color: #fff500 !important;
+  }
+  .know-img{
+    margin: 10px;
   }
 }
