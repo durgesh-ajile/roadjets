@@ -2,7 +2,7 @@
 import "./Navbar.css";
 import { FaArrowRight } from "react-icons/fa6";
 import Logo from "../../assets/Logo.png";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import React, { useEffect, useState } from "react";
 // import axios from "axios";
@@ -25,6 +25,7 @@ const Navbar = () => {
   const [userData, setUserData] = useState();
   const token = localStorage.getItem("token");
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate()
 
   useEffect(() => {
     const checkAuthentication = async () => {
@@ -115,9 +116,11 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <Toaster />
-      <div className="nav-title">
+      <div className="nav-title" onClick={() => {
+        navigate("/services")
+      }}>
         <span style={{ marginRight: "10px" }}>
-          Register to unlock offer 🌟 on your first ride
+        Tired Of City Travel Delays? Book Raodjets 🚗🚀 & Experience The Difference
         </span>
         <FaArrowRight id="arrow-icon" />
       </div>

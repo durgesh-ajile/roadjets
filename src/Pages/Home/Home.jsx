@@ -83,25 +83,20 @@ const Home = () => {
           <span className="icon-box">
             <BsFillLightningChargeFill id="lightning" />
           </span>
-          Welcome To India’s First Sustainable Intercity Carpooling Service.
+          Welcome To India’s Most Reliable Intercity Travel Partner.
         </h1>
-        <h2 className="head2">Connecting people to Unite.Heal.Inspire</h2>
-        <p>Affordable,Safe,Simplified Travel Solutions</p>
+        <h2 className="head2">Connecting people & Uniting Hearts In The Most Reliable Way Possible</h2>
+        {/* <p>Affordable,Safe,Simplified Travel Solutions</p> */}
+        <div className="home-btn signup-in">
+        <Link to="/services?scrollTo=bookride-section">
+          <button id="login-btn">Book Now</button>
+        </Link>
+      </div>
       </div>
       <div className="roadjetbanner">
         <img src={RoadjetsBanner}></img>
       </div>
-      <div className="home-btn signup-in">
-        <Link to="/services?scrollTo=bookride-section">
-          <button id="login-btn">Book Ride</button>
-        </Link>
-        {/* <button
-          id="signup-btn"
-          style={{ background: "white", marginLeft: "10px" }}
-        >
-          View Pricing
-        </button> */}
-      </div>
+      
 
       <div className="ourservices">
         <div className="head-serve">

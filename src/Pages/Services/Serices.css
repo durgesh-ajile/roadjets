@@ -99,6 +99,7 @@ letter-spacing: .001px;
 
 
 @media screen and (max-width: 651px) {
+    
     .mapcontainer{
         display: block;
     }

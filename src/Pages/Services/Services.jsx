@@ -69,9 +69,9 @@ const timeData = [
 const data = [
   {
     id: 1,
-    title: "Hyderabad(gachibowli circle) - Warangal",
-    text: "Our route begins at Gachibowli Circle, meandering through the ORR for a comfortable 3 hours and 30 minutes. Our dedicated pilots ensure a seamless and secure ride. For a personalized experience, kindly share your travel details in advance. Currently, doorstep services are available exclusively in Warangal. Your ticket cost covers all tall charges. Residents of Gachibowli, Madhapur, Raidurg, Hitech City, Kondapur Miyapur will find this route especially convenient. Trust Roadjets for a reliable and enjoyable travel experience.",
-    location: "Hyderabad(gachibowli circle) - Warangal - Timings:",
+    title: "Hyderabad(Rai-Durg Metero) - Warangal",
+    text: "Our route begins at Rai-Durg Metero, meandering through the ORR for a comfortable 3 hours and 30 minutes. Our dedicated pilots ensure a seamless and secure ride. For a personalized experience, kindly share your travel details in advance. Currently, doorstep services are available exclusively in Warangal. Your ticket cost covers all tall charges. Residents of Gachibowli, Madhapur, Raidurg, Hitech City, Kondapur Miyapur will find this route especially convenient. Trust Roadjets for a reliable and enjoyable travel experience.",
+    location: "Hyderabad(Rai-Durg Metero) - Warangal - Timings:",
     shortFormStartLocation: "HYD",
     shortFormEndLocation: "WGL",
     shortDescription: "Via ORR-3h: 30 min - A/C - Female Preference",
@@ -95,7 +95,7 @@ const data = [
     id: 3,
     title: "Hyderabad  Karimnagar",
     text: "Our route commences from offering a pleasant 2 hours and 30 minutes ride. Our dedicated pilots ensure a smooth experience throughout, Please share your personalized travel details in advance for a tailored service. Currently, doorstep services are exclusively available in Warangal. Your ticket cost covers all toll charges. Travelers from Secunderabad, Uppal Ameerpet, ramanthpur will find this route particularly advantageous. Trust RoadJets for a reliable and streamlined travel experience.",
-    location: "Hyderabad(gachibowli circle) - Karimnagar - Timings :",
+    location: "Hyderabad(Rai-Durg Metero) - Karimnagar - Timings :",
     shortFormStartLocation: "HYD",
     shortFormEndLocation: "KNR",
     shortDescription: "Via SH 01 -3h: 30 min - A/C - Female Preference",
@@ -106,8 +106,8 @@ const data = [
   {
     id: 4,
     title: "Hyderabad  Kammam",
-    text: " Enjoy the seamless,safe ride with roadjets. the route is started from gachibowli circle & taken through ORR which takes around 3hours 30 minutes. our pilots make sure the ride is well-served through out. let us know about your customised travel details prior. currently the door-step services are available at warangal only.the ticket cost includes the toll-charges. travelers from gachibowli,madhapur,raidurg,hitech-city,kondapur,miyapur will be benificial from this route.as this is a pooling service the time tables are strictly followed. we request the travelers to be prior.",
-    location: "Hyderabad(gachibowli circle) - Kammam - Timings :",
+    text: " Enjoy the seamless,safe ride with roadjets. the route is started from Rai-Durg Metero & taken through ORR which takes around 3hours 30 minutes. our pilots make sure the ride is well-served through out. let us know about your customised travel details prior. currently the door-step services are available at warangal only.the ticket cost includes the toll-charges. travelers from gachibowli,madhapur,raidurg,hitech-city,kondapur,miyapur will be benificial from this route.as this is a pooling service the time tables are strictly followed. we request the travelers to be prior.",
+    location: "Hyderabad(Rai-Durg Metero) - Kammam - Timings :",
     shortFormStartLocation: "HYD",
     shortFormEndLocation: "WGL",
     shortDescription: "Via ORR 3h:00 min A/C",

@@ -103,15 +103,12 @@ const HomeService = () => {
           <p>
             {/* Route - via  ORR - Distance : 199 Km - Duration : 3 hours 30 minutes. Book your ride now. enjoy the seamless,safe & affordable travel with roadjets. */}
           </p>
-
-          <button
+          <Link to="/services?scrollTo=5"><button
             className="book-btn"
-            onClick={(e) => {
-              handleNizamabad(e);
-            }}
           >
             Book Now!
-          </button>
+          </button></Link>
+          
         </div>
       </div>
     </div>

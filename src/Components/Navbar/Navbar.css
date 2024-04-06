@@ -11,6 +11,7 @@ align-items: center;
 margin-top: 10px;
 text-align: center;
 display: flex;
+cursor: pointer;
 }
 #arrow-icon{
     font-size: 17px;
@@ -80,6 +81,9 @@ display: flex;
 
 
 @media screen and (max-width: 651px) {
+    .service-book {
+        display: block;
+    }
     #side-select{
         color: rgb(0, 0, 0);
         background-color: yellow;

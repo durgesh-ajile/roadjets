@@ -8,9 +8,17 @@
     margin-bottom: 24px;
     border-radius: 15px;
 }
-.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.MuiSelect-select{
-    background: #e8e8e9;
+.css-10botns-MuiInputBase-input-MuiFilledInput-input{
+    background-color: #f7f7f8 !important;
+    border: 1px solid #bebebf !important;
+    border-radius: 4px;
 }
+.css-batk84-MuiInputBase-root-MuiFilledInput-root::before{
+    border-bottom: 0 !important;
+}
+/* .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.MuiSelect-select{
+    background: #e8e8e9;
+} */
 .date-location{
     margin: auto;
     padding: 30px;
@@ -73,7 +81,15 @@
 #choose-ride .css-ypiqx9-MuiDialogContent-root{
     padding-bottom: 5px;
 }
-
+.pickup-loctn{
+    margin-top: 20px;
+    margin-right: 50px;
+}
+.payment-btn{
+    display: flex;
+    justify-content: flex-end;
+    margin: 50px 20px;
+}
 @media screen and (min-width: 1000px) {
     #solo-time{
     padding-left: 15px;
@@ -81,5 +97,29 @@
     .css-1t1j96h-MuiPaper-root-MuiDialog-paper{
         max-width: 1000px;
         min-width: 600px;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .choose-date {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-top: 0;
+    }
+    .choose-location{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    #demo-simple-select-autowidth-label{
+        margin-top: 20px;
+    }
+     .css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root{
+        display: block !important;
+    }
+    .css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root
+    .pgender{
+        margin-top: 15px;
     }
 }
