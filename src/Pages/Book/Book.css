@@ -9,8 +9,12 @@
     border-radius: 15px;
 }
 .css-10botns-MuiInputBase-input-MuiFilledInput-input{
-    background-color: #f7f7f8 !important;
-    border: 1px solid #bebebf !important;
+    /* background-color: #f7f7f8 !important; */
+    
+}
+#filled-helperText{
+    background-color: #f7f7f8;
+    border: 1px solid #bebebf;
     border-radius: 4px;
 }
 .css-batk84-MuiInputBase-root-MuiFilledInput-root::before{
@@ -90,6 +94,13 @@
     justify-content: flex-end;
     margin: 50px 20px;
 }
+.details-inline{
+    display: flex;
+    padding: 5px 20px;
+}
+#demo-simple-select-standard{
+    height: 10px;
+}
 @media screen and (min-width: 1000px) {
     #solo-time{
     padding-left: 15px;
@@ -101,11 +112,19 @@
 }
 
 @media screen and (max-width: 500px){
+    .date-location{
+        padding: 30px 0;
+    }
     .choose-date {
         flex-direction: column;
         align-items: center;
-        text-align: center;
         margin-top: 0;
+    }
+    .details-inline{
+        display: block;
+    }
+    .details-inline #passenger{
+        display: block;
     }
     .choose-location{
         display: flex;
@@ -121,5 +140,11 @@
     .css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root
     .pgender{
         margin-top: 15px;
+    }
+    .yellow {
+        padding: 10px 20px;
+    }
+    .yellow2 {
+        padding: 10px 20px;
     }
 }

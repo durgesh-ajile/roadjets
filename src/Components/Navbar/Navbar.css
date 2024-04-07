@@ -84,6 +84,9 @@ cursor: pointer;
     .service-book {
         display: block;
     }
+    .nav-title{
+        font-size: 16px;
+    }
     #side-select{
         color: rgb(0, 0, 0);
         background-color: yellow;

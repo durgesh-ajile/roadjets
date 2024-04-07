@@ -156,8 +156,12 @@ const allRides = [
 
 const Book = () => {
     const [bookDate, setBookDate] = useState(() => {
-        let date = new Date();
-        return date;
+        let today = new Date();
+        let dd = String(today.getDate()).padStart(2, '0');
+        let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        let yyyy = today.getFullYear();
+
+        return today = yyyy + '-' + mm + '-' + dd;
     });
     const [location, setLocation] = React.useState("Select");
     const [open, setOpen] = React.useState(false);
@@ -178,6 +182,7 @@ const Book = () => {
     const [drop, setDrop] = useState("");
     const [seatAvl, setSeatAvl] = useState(null);
 
+    console.log(bookDate)
     const getRouteData = async () => {
         try {
             let Sdata = await axios({
@@ -266,7 +271,7 @@ const Book = () => {
     };
 
     useEffect(() => {
-        if (route && route.length !== 3) {
+        if (route && route[0] === "@") {
             handleClickOpen2();
         }
 
@@ -385,49 +390,50 @@ const Book = () => {
         const fields = [];
         for (let i = 0; i < seats; i++) {
             fields.push(
-                <ListItemButton key={i}>
+                <div className="details-inline" key={i}>
                     <TextField
                         autoFocus
                         required
                         margin="dense"
-                        id={`name-${i}`}
+                        id='passenger'
                         name={`name-${i}`}
                         label={`Name of passenger ${i + 1}`}
                         type="text"
                         variant="standard"
-                        sx={{ width: "50%", flex: 1, marginRight: 4 }}
+                        sx={{ width: { lg: "50%", sm: "50%", xs: "80%" }, flex: 1, marginRight: 4 }}
                         value={passengerDetails[i]?.name || ""}
                         onChange={(event) => handleInputChange(event, i, "name")}
                     />
+                    <br />
                     <TextField
                         autoFocus
                         required
                         margin="dense"
-                        id={`age-${i}`}
+                        id='passenger'
                         name={`age-${i}`}
                         label={`Age of passenger ${i + 1}`}
                         type="text"
                         variant="standard"
-                        sx={{ width: "30%", flex: 1, marginRight: 4 }}
+                        sx={{ width: { lg: "30%", sm: "30%", xs: "80%" }, mb: { xs: "25px" }, flex: 1, marginRight: 4 }}
                         value={passengerDetails[i]?.age || ""}
                         onChange={(event) => handleInputChange(event, i, "age")}
                     />
                     <div className="pgender">
                         <InputLabel>Gender of passenger {i + 1}</InputLabel>
-                    <Select
-                        labelId={`gender-${i}`}
-                        id={`gender-${i}`}
-                        autoWidth
-                        label=""
-                        value={passengerDetails[i]?.gender || ""}
-                        onChange={(event) => handleInputChange(event, i, "gender")}
-                        sx={{width:"180px"}}
-                    >
-                        <MenuItem value="male">Male</MenuItem>
-                        <MenuItem value="female">Female</MenuItem>
-                    </Select>
+                        <Select
+                            labelId={`gender-${i}`}
+                            id={`gender-${i}`}
+                            autoWidth
+                            label=""
+                            value={passengerDetails[i]?.gender || ""}
+                            onChange={(event) => handleInputChange(event, i, "gender")}
+                            sx={{ width: "220px", height: '50px' }}
+                        >
+                            <MenuItem value="male">Male</MenuItem>
+                            <MenuItem value="female">Female</MenuItem>
+                        </Select>
                     </div>
-                </ListItemButton>
+                </div>
             );
         }
         return fields;
@@ -448,7 +454,7 @@ const Book = () => {
                 <DialogContent id="contents">
                     {allRides
                         .filter((val) => {
-                            return val.case === route;
+                            return val.case === route.split("@")[1];
                         })
                         .map((val) => {
                             return (
@@ -509,16 +515,16 @@ const Book = () => {
                             Warangal to Hyderabad (Uppal)
                         </MenuItem>
                         <MenuItem value="HYD-KNR">
-                            Hyderabad(Rai-Durg Metero) - Karimnagar
+                            Hyderabad(Gachibowli circle) - Karimnagar
                         </MenuItem>
                         <MenuItem value="KNR-HYD">
-                            Karimnagar to Hyderabad(Rai-Durg Metero)
+                            Karimnagar to Hyderabad(Gachibowli circle)
                         </MenuItem>
                         <MenuItem value="HYD-KHM">
-                            Hyderabad(Rai-Durg Metero) - Kammam
+                            Hyderabad(Gachibowli circle) - Kammam
                         </MenuItem>
                         <MenuItem value="KHM-HYD">
-                            Kammam to Hyderabad(Rai-Durg Metero)
+                            Kammam to Hyderabad(Gachibowli circle)
                         </MenuItem>
                     </Select>
                 </div>
@@ -537,7 +543,7 @@ const Book = () => {
                             defaultValue={bookDate}
                             // helperText="Choose date of booking"
                             variant="filled"
-                            sx={{ width: "300px" }}
+                            sx={{ width: { xs: "300px", lg: "300px", sm: "300px" } }}
                             onChange={(e) => {
                                 setBookDate(e.target.value);
                             }}
@@ -634,7 +640,7 @@ const Book = () => {
                     >
                         Personal Details
                     </Typography>
-                    <ListItemButton>
+                    <div className="details-inline">
                         <TextField
                             autoFocus
                             required
@@ -645,7 +651,7 @@ const Book = () => {
                             type="name"
                             fullWidth
                             variant="standard"
-                            sx={{ mr: {xs:0, sm:4, lg:4} }}
+                            sx={{ mr: { xs: 0, sm: 4, lg: 4 } }}
                             onChange={(e) => {
                                 setName(e.target.value);
                             }}
@@ -660,7 +666,7 @@ const Book = () => {
                             type="email"
                             fullWidth
                             variant="standard"
-                            sx={{ mr: {xs:0, sm:4, lg:4} }}
+                            sx={{ mr: { xs: 0, sm: 4, lg: 4 } }}
                             onChange={(e) => {
                                 setEmail(e.target.value);
                             }}
@@ -679,9 +685,9 @@ const Book = () => {
                                 setPhone(e.target.value);
                             }}
                         />
-                    </ListItemButton>
+                    </div>
 
-                    <ListItemButton>
+                    <div className="details-inline">
                         <div className="pickup-loctn">
                             <InputLabel id="demo-simple-select-autowidth-label">
                                 Pickup Location
@@ -694,7 +700,7 @@ const Book = () => {
                                     setPick(e.target.value);
                                 }}
                                 // label="Seats"
-                                sx={{ width: "300px" }}
+                                sx={{ width: { lg: "300px", sm: "300px", xs: "112%" }, height: "50px" }}
                             >
                                 {pickupLocation.map((curr) => {
                                     // Ensure curr is defined and not null before rendering MenuItem
@@ -722,7 +728,7 @@ const Book = () => {
                                     setDrop(e.target.value);
                                 }}
                                 // label="Seats"
-                                sx={{ width: "300px" }}
+                                sx={{ width: { lg: "300px", sm: "300px", xs: "112%" }, height: "50px" }}
                             >
                                 {dropLocation.map((curr) => {
                                     // Ensure curr is defined and not null before rendering MenuItem
@@ -737,7 +743,7 @@ const Book = () => {
                                 })}
                             </Select>
                         </div>
-                    </ListItemButton>
+                    </div>
 
 
                     <Typography

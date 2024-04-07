@@ -199,7 +199,7 @@ const Services = () => {
                 id="login-btn"
                 onClick={(e) => {
                   // handleBook(e, data.location, data.shortDescription);
-                  navigate(`/book?route=${data[0].code}`)
+                  navigate(`/book?route=@${data[0].code}`)
                 }}
               >
                 Book Now
@@ -262,7 +262,7 @@ const Services = () => {
                 id="login-btn"
                 onClick={(e) => {
                   // handleBook(e, data.location, data.shortDescription);
-                  navigate(`/book?route=${data[1].code}`)
+                  navigate(`/book?route=@${data[1].code}`)
                 }}
               >
                 Book Now
@@ -324,7 +324,7 @@ const Services = () => {
                 id="login-btn"
                 onClick={(e) => {
                   // handleBook(e, data.location, data.shortDescription);
-                  navigate(`/book?route=${data[2].code}`)
+                  navigate(`/book?route=@${data[2].code}`)
                 }}
               >
                 Book Now
@@ -387,7 +387,7 @@ const Services = () => {
                 id="login-btn"
                 onClick={(e) => {
                   // handleBook(e, data.location, data.shortDescription);
-                  navigate(`/book?route=${data[3].code}`)
+                  navigate(`/book?route=@${data[3].code}`)
                 }}
               >
                 Book Now
