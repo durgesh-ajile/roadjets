@@ -183,9 +183,9 @@ const Services = () => {
 
   return (serviceData ?
     <div className="services">
-      <div className="map">
+      {/* <div className="map">
         <MapContainer />
-      </div>
+      </div> */}
       <div className="all-service" id="bookride-section">
       <div className="service-model" key={data[0].id} id={data[0].id}>
           <h2>{serviceData[0].title}</h2>

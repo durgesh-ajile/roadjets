@@ -27,7 +27,7 @@ const Footer = () => {
           </div>
           <div>
             <FaLocationDot />
-            <span className="address">Hyderabad,telangana </span>
+            <span className="address">Hyderabad, Telangana </span>
           </div>
         </div>
         <div className="footer-right">

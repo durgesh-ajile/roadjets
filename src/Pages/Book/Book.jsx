@@ -234,6 +234,7 @@ const Book = () => {
 
         window.history.pushState({ path: newUrl }, "", newUrl);
         handleClose2();
+        scrollToTop()
     };
 
     console.log(bookingTiming);
@@ -269,6 +270,13 @@ const Book = () => {
 
         // handleClickOpen();
     };
+
+    const scrollToTop = () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      };
 
     useEffect(() => {
         if (route && route[0] === "@") {

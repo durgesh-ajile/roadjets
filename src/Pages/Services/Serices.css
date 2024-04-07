@@ -5,6 +5,7 @@
     border-radius: 10px;
     margin-bottom: 0;
     padding-bottom: 0;
+    margin-top: 0;
 }
 .service-model {
     margin-bottom: 30px;
@@ -114,6 +115,7 @@ letter-spacing: .001px;
     }
     .all-service {
         margin: 30px 0;
+        padding-top: 0;
     }
     .service-book{
         display: block;
