@@ -114,7 +114,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar">
+    <div className="navbar" id="navbar">
       <Toaster />
       <div className="nav-title" onClick={() => {
         navigate("/services")

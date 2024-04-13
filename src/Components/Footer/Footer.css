@@ -5,11 +5,11 @@
 }
 .footer-left{
     margin-top: 40px;
-    margin-right: 26%;
+    margin-right: 15%;
 }
 .footer-child1{
     display: flex;
-    /* justify-content: space-between; */
+    justify-content: space-around;
 }
 .footer-right{
     display: flex;
@@ -19,6 +19,12 @@
 }
 .footer-right p{
     margin: 8px 0;
+}
+.right1{
+    margin: 0 20px;
+}
+.right1 a{
+    text-decoration: none;
 }
 .right32{
     display: flex;

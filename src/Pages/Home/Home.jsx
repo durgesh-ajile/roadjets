@@ -88,7 +88,7 @@ const Home = () => {
         <h2 className="head2">Connecting people & Uniting Hearts In The Most Reliable Way Possible</h2>
         {/* <p>Affordable,Safe,Simplified Travel Solutions</p> */}
         <div className="home-btn signup-in">
-        <Link to="/services?scrollTo=bookride-section">
+        <Link to="/services?scrollTo=navbar">
           <button id="login-btn">Book Now</button>
         </Link>
       </div>
@@ -108,7 +108,7 @@ const Home = () => {
             </p>
           </div>
           <div>
-            <Link to="/services?scrollTo=bookride-section">
+            <Link to="/services?scrollTo=navbar">
               <button className="white-btn">View All</button>
             </Link>
           </div>
@@ -136,7 +136,7 @@ const Home = () => {
             uncompromised safety,quality on every road with RoadJets
           </h1>
         </div>
-        <Link to="/services?scrollTo=bookride-section">
+        <Link to="/services?scrollTo=navbar"> 
           <div className="big-btn">
             <button style={{ cursor: "pointer" }}>Book Now !!</button>
           </div>

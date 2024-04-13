@@ -43,7 +43,7 @@ const HomeService = () => {
           <p>
             {/* Route - via  ORR - Distance : 199 Km - Duration : 3 hours 30 minutes. Book your ride now. enjoy the seamless,safe & affordable travel with roadjets. */}
           </p>
-          <Link to="/services?scrollTo=1">
+          <Link to="/services?scrollTo=navbar">
             <button className="book-btn">Book Now!</button>
           </Link>
         </div>
@@ -63,7 +63,7 @@ const HomeService = () => {
           <p>
             {/* Route - via  ORR - Distance : 199 Km - Duration : 3 hours 30 minutes. Book your ride now. enjoy the seamless,safe & affordable travel with roadjets. */}
           </p>
-          <Link to="/services?scrollTo=3">
+          <Link to="/services?scrollTo=navbar">
             <button className="book-btn">Book Now!</button>
           </Link>
         </div>
@@ -83,7 +83,7 @@ const HomeService = () => {
           <p>
             {/* Route - via  ORR - Distance : 199 Km - Duration : 3 hours 30 minutes. Book your ride now. enjoy the seamless,safe & affordable travel with roadjets. */}
           </p>
-          <Link to="/services?scrollTo=4">
+          <Link to="/services?scrollTo=navbar">
             <button className="book-btn">Book Now!</button>
           </Link>
         </div>
@@ -103,7 +103,7 @@ const HomeService = () => {
           <p>
             {/* Route - via  ORR - Distance : 199 Km - Duration : 3 hours 30 minutes. Book your ride now. enjoy the seamless,safe & affordable travel with roadjets. */}
           </p>
-          <Link to="/services?scrollTo=5"><button
+          <Link to="/services?scrollTo=navbar"><button
             className="book-btn"
           >
             Book Now!

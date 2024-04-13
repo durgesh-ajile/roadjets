@@ -182,7 +182,6 @@ const Book = () => {
     const [drop, setDrop] = useState("");
     const [seatAvl, setSeatAvl] = useState(null);
 
-    console.log(bookDate)
     const getRouteData = async () => {
         try {
             let Sdata = await axios({
@@ -237,7 +236,6 @@ const Book = () => {
         scrollToTop()
     };
 
-    console.log(bookingTiming);
 
     const handleNavigate = async (time) => {
         setTripTime(time);
@@ -325,6 +323,10 @@ const Book = () => {
     };
 
     console.log(seatAvl);
+
+    useEffect(() => {
+        setSeatAvl(null)
+    }, [bookDate, location, seats])
 
     const checkoutHandler = async (e, amount) => {
         e.preventDefault();
@@ -504,7 +506,7 @@ const Book = () => {
                         value={location}
                         onChange={handleChange}
                         fullWidth
-                        label="Location"
+                        label=""
                         sx={{ width: { xs: "300px", lg: "100%", md: "100%" } }}
                     >
                         <MenuItem value="Select">
@@ -610,7 +612,7 @@ const Book = () => {
                                     <div>{data.model}</div>
                                     {seatAvl && seatAvl.time === data.time ? (
                                         <div style={{ color: "red" }}>
-                                            {seatAvl.seatOccupied > 0
+                                            {seatAvl.seatOccupied
                                                 ? data.seater - seatAvl?.seatOccupied
                                                 : data.seater}{" "}
                                             seats left

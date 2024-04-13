@@ -458,3 +458,17 @@
     margin: 10px;
   }
 }
+
+@media screen and (max-width: 500px){
+  .know-model{
+    padding: 20px 10px;
+    margin: 0 5%;
+    font-size: smaller;
+  }
+  .knowus {
+    margin: 20px 0%;
+}
+.in-bold{
+  font-size: 22px;
+}
+}

@@ -33,15 +33,21 @@ const Footer = () => {
         <div className="footer-right">
           <div className="right1">
             <h4>Home</h4>
-            <p>Benefits</p>
-            <p>Our Testimonials</p>
-            <p>Our FAQ</p>
+            <Link to="/"><p>Benefits</p></Link>
+            <Link to="/"><p>Our Testimonials</p></Link>
+            <Link to="/"><p>Our FAQ</p></Link>
           </div>
-          <div className="right2">
+          <div className="right1">
             <h4>About Us</h4>
-            <p>Company</p>
-            <p>Achievements</p>
-            <p>Our Goals</p>
+            <Link to="/about?scrollTo=navbar"><p>Company</p></Link>
+            <Link to="/about"><p>Achievements</p></Link>
+            <Link to="/about"><p>Our Goals</p></Link>
+          </div>
+          <div className="right1">
+            <h4>Policies</h4>
+            <Link target="_blank" to="/termsandconditions"><p>Terms and Conditions</p></Link>
+            <Link target="_blank" to="/privacypolicy"><p>Privacy Policy</p></Link>
+            <Link target="_blank" to="/cancellation"><p>Cancellations</p></Link>
           </div>
           <div className="right3">
             <h4>Social Profiles</h4>
@@ -68,7 +74,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="copyright">© 2023 Roadjets. All rights reserved.</div>
+      <div className="copyright">© 2024 Roadjets. All rights reserved.</div>
     </div>
   );
 };
