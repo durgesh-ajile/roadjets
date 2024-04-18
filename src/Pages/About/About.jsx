@@ -180,12 +180,8 @@ const About = () => {
       <div className="about-us-details">
       <h2>Company Details</h2>
       <div className="detail">
-        <h3>PAN Number:</h3>
-        <p>AAMCR7248E</p>
-      </div>
-      <div className="detail">
-        <h3>GST Number:</h3>
-        <p>36AAMCR7248E1Z2</p>
+        <h3>Company Name:</h3>
+        <p>ROADJETS COMMUTE PRIVATE LIMITED</p>
       </div>
       <div className="detail">
         <h3>Address:</h3>
