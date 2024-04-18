@@ -70,6 +70,34 @@
   color: #fff500;
 }
 
+
+.about-us-details {
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: white;
+  margin-bottom: 20px;
+}
+
+.detail {
+  margin-bottom: 15px;
+}
+
+.detail h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.detail p {
+  font-size: 16px;
+  margin-top: 0;
+}
+
+.detail address {
+  font-style: normal;
+}
+
+
 @media screen and (max-width: 651px) {
   .about {
     margin: 20px 30px;

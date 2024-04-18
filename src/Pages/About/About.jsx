@@ -177,6 +177,25 @@ const About = () => {
           </button>
         </Link>
       </div>
+      <div className="about-us-details">
+      <h2>Company Details</h2>
+      <div className="detail">
+        <h3>PAN Number:</h3>
+        <p>AAMCR7248E</p>
+      </div>
+      <div className="detail">
+        <h3>GST Number:</h3>
+        <p>36AAMCR7248E1Z2</p>
+      </div>
+      <div className="detail">
+        <h3>Address:</h3>
+        <address>
+        H NO 24-7-299/4/F/403, PRAGATHI NAGAR, R E
+COLLEGE, Hanumakonda, Hanumakonda, Telangana,
+506004
+        </address>
+      </div>
+    </div>
     </div>
   );
 };

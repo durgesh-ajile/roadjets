@@ -74,7 +74,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="copyright">© 2024 Roadjets. All rights reserved.</div>
+      <div className="copyright">© 2024 Roadjets Commute Private Limited. All rights reserved.</div>
     </div>
   );
 };
