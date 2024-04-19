@@ -221,7 +221,7 @@ const Services = () => {
             </div>
             <div className="time">{serviceData[0].shortDescription}</div>
           </div>
-          <div className="yellow2">{serviceData[0].location}</div>
+          <div className="yellow2">{serviceData[0].title} - Timings: </div>
           <div className="time-box" >
             {serviceData[0].pickUpTiming.map((data) => {
               return (
@@ -235,7 +235,7 @@ const Services = () => {
             })}
 
           </div>
-          <div className="yellow2" style={{ margin: "0" }}>{serviceData[0].location}</div>
+          <div className="yellow2" style={{ margin: "0" }}>{serviceData[0].returnRoute}  - Timings: </div>
           <div className="time-box">
             {serviceData[0].dropUpTiming.map((data) => {
               return (
@@ -284,7 +284,7 @@ const Services = () => {
             </div>
             <div className="time">{serviceData[1].shortDescription}</div>
           </div>
-          <div className="yellow2">{serviceData[1].location}</div>
+          <div className="yellow2">{serviceData[1].title} - Timings: </div>
           <div className="time-box" >
             {serviceData[1].pickUpTiming.map((data) => {
               return (
@@ -298,7 +298,7 @@ const Services = () => {
             })}
 
           </div>
-          <div className="yellow2" style={{ margin: "0" }}>{serviceData[1].location}</div>
+          <div className="yellow2" style={{ margin: "0" }}>{serviceData[1].returnRoute} - Timings: </div>
           <div className="time-box">
             {serviceData[1].dropUpTiming.map((data) => {
               return (
@@ -346,7 +346,7 @@ const Services = () => {
             </div>
             <div className="time">{serviceData[2].shortDescription}</div>
           </div>
-          <div className="yellow2">{serviceData[2].location}</div>
+          <div className="yellow2">{serviceData[2].title} - Timings: </div>
           <div className="time-box" >
             {serviceData[2].pickUpTiming.map((data) => {
               return (
@@ -360,7 +360,7 @@ const Services = () => {
             })}
 
           </div>
-          <div className="yellow2" style={{ margin: "0" }}>{serviceData[2].location}</div>
+          <div className="yellow2" style={{ margin: "0" }}>{serviceData[2].returnRoute} - Timings: </div>
           <div className="time-box">
             {serviceData[2].dropUpTiming.map((data) => {
               return (
@@ -409,7 +409,7 @@ const Services = () => {
             </div>
             <div className="time">{serviceData[3].shortDescription}</div>
           </div>
-          <div className="yellow2">{serviceData[3].location}</div>
+          <div className="yellow2">{serviceData[3].title} - Timings: </div>
           <div className="time-box" >
             {serviceData[3].pickUpTiming.map((data) => {
               return (
@@ -423,7 +423,7 @@ const Services = () => {
             })}
 
           </div>
-          <div className="yellow2" style={{ margin: "0" }}>{serviceData[3].location}</div>
+          <div className="yellow2" style={{ margin: "0" }}>{serviceData[3].returnRoute} - Timings: </div>
           <div className="time-box">
             {serviceData[3].dropUpTiming.map((data) => {
               return (

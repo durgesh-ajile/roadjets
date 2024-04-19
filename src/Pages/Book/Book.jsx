@@ -448,6 +448,7 @@ const Book = () => {
         }
         return fields;
     };
+    console.log(filteredData)
 
     return (
         <div className="book">
@@ -595,7 +596,7 @@ const Book = () => {
                         </div>
                         <div className="time">{filteredData[0]?.shortDescription}</div>
                     </div>
-                    <div className="yellow2">{filteredData[0]?.location}</div>
+                    <div className="yellow2">{filteredData[0]?.routeOne === location ? filteredData[0]?.title : filteredData[0]?.returnRoute}</div>
                     <div className="time-box">
                         {bookingTiming?.map((data) => {
                             return (
