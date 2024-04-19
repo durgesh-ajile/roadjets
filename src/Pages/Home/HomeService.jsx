@@ -13,7 +13,7 @@ const HomeService = () => {
     try {
       const response = await axios({
         method: "post",
-        url: "https://curious-hare-jersey.cyclic.app/api/get-whatapplink",
+        url: "https://seal-app-aximy.ondigitalocean.app/api/get-whatapplink",
         data: {
           toPhone: "+918320911933",
           message: `Hii! I want to book a ride to Nizamabad`,

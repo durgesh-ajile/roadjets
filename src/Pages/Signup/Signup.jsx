@@ -53,7 +53,7 @@ const Signup = () => {
 
   const handleSignUpGoogle = () => {
     try {
-      window.open("https://curious-hare-jersey.cyclic.app/api/auth/google", "_self");
+      window.open("https://seal-app-aximy.ondigitalocean.app/api/auth/google", "_self");
     } catch (error) {
       console.log(error);
     }
@@ -67,7 +67,7 @@ const Signup = () => {
     try {
       const response = await axios({
         method: "post",
-        url: "https://curious-hare-jersey.cyclic.app/api/signup",
+        url: "https://seal-app-aximy.ondigitalocean.app/api/signup",
         data: {
           fullName: fullName,
           email: email,

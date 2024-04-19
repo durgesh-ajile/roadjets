@@ -57,7 +57,7 @@ const Login = () => {
 
   const handleLogInGoogle = () => {
     try {
-      window.open("https://curious-hare-jersey.cyclic.app/api/auth/google", "_self");
+      window.open("https://seal-app-aximy.ondigitalocean.app/api/auth/google", "_self");
     } catch (error) {
       console.log(error);
     }
@@ -67,7 +67,7 @@ const Login = () => {
     try {
       const response = await axios({
         method: "post",
-        url: "https://curious-hare-jersey.cyclic.app/api/login",
+        url: "https://seal-app-aximy.ondigitalocean.app/api/login",
         data: {
           username: username,
           password: password,

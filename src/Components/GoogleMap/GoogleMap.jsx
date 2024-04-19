@@ -34,7 +34,7 @@ const MapContainer = () => {
       try {
         const response = await axios({
           method: "post",
-          url: "https://curious-hare-jersey.cyclic.app/api/get-whatapplink",
+          url: "https://seal-app-aximy.ondigitalocean.app/api/get-whatapplink",
           data: {
             toPhone: "+918320911933",
             message: `Hi! I want to request a ride from ${pickUp} to ${drop}. let me know for further info`,

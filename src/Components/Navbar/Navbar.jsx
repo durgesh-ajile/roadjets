@@ -32,7 +32,7 @@ const Navbar = () => {
       setLoading(true);
       try {
         const response = await axios.get(
-          "https://curious-hare-jersey.cyclic.app/api/auth/check",
+          "https://seal-app-aximy.ondigitalocean.app/api/auth/check",
           {
             withCredentials: true,
             headers: {
@@ -63,7 +63,7 @@ const Navbar = () => {
     localStorage.removeItem("token");
     axios({
       method: "post",
-      url: "https://curious-hare-jersey.cyclic.app/api/logout",
+      url: "https://seal-app-aximy.ondigitalocean.app/api/logout",
       withCredentials: true,
     })
       .then((res) => {

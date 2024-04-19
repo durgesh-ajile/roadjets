@@ -19,7 +19,7 @@ const Contactus = () => {
     try {
       const response = await axios({
         method: "POST",
-        url: "https://curious-hare-jersey.cyclic.app/api/contact-us",
+        url: "https://seal-app-aximy.ondigitalocean.app/api/contact-us",
         data: {
           firstName: firstName,
           lastName: lastName,

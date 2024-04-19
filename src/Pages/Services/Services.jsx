@@ -147,7 +147,7 @@ const Services = () => {
 
       const response = await axios({
         method: "post",
-        url: "https://curious-hare-jersey.cyclic.app/api/get-whatapplink",
+        url: "https://seal-app-aximy.ondigitalocean.app/api/get-whatapplink",
         data: {
           toPhone: "+918320911933",
           message: `Hii! I want to book a ride from ${finalLocation} ${preference}`,
@@ -167,7 +167,7 @@ const Services = () => {
     try {
       let Sdata = await axios({
         method: "get",
-        url: "https://curious-hare-jersey.cyclic.app/api/getBookingService"
+        url: "https://seal-app-aximy.ondigitalocean.app/api/getBookingService"
       })
       setServiceData(Sdata.data.data)
     } catch (err) {
