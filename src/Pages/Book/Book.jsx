@@ -356,7 +356,7 @@ const Book = () => {
                 const order = response.data;
 
                 const options = {
-                    key: "rzp_test_PJ58yUCCCFE7f6",
+                    key: "rzp_live_thNSYHpfDnVrHq",
                     amount: order.order.amount,
                     currency: "INR",
                     name: "Roadjets",
@@ -596,7 +596,7 @@ const Book = () => {
                         </div>
                         <div className="time">{filteredData[0]?.shortDescription}</div>
                     </div>
-                    <div className="yellow2">{filteredData[0]?.routeOne === location ? filteredData[0]?.title : filteredData[0]?.returnRoute}</div>
+                    <div className="yellow2">{filteredData[0]?.routeOne === location ? filteredData[0]?.title : filteredData[0]?.returnRoute} - Timings:</div>
                     <div className="time-box">
                         {bookingTiming?.map((data) => {
                             return (
