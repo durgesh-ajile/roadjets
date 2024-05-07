@@ -167,8 +167,8 @@ const Contactus = () => {
             <div className="icons">
               <FaPhoneAlt />
             </div>
-            <a className="phonelink" href="tel:+918320911933">
-              +91 8320911933
+            <a className="phonelink" href="tel:+919032240749">
+              +91 9032240749
             </a>
           </div>
           <div className="contactlocation">

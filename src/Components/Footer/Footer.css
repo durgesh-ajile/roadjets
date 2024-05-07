@@ -7,6 +7,10 @@
     margin-top: 40px;
     margin-right: 15%;
 }
+.footer-left div{
+    display: flex;
+    align-items: center;
+}
 .footer-child1{
     display: flex;
     justify-content: space-around;
@@ -29,10 +33,7 @@
 .right32{
     display: flex;
 }
-.footer-left div{
-    display: flex;
-    align-items: center;
-}
+
 .mail, .phone, .address{
     margin: 7px;
 }

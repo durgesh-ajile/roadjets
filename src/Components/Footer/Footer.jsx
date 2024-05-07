@@ -23,7 +23,7 @@ const Footer = () => {
           </div>
           <div>
             <IoCall />
-            <span className="phone">+91 9381290983</span>
+            <span className="phone">+91 9032240749</span>
           </div>
           <div>
             <FaLocationDot />
