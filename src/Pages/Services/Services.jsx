@@ -214,7 +214,7 @@ const Services = () => {
               <img src={data[0].img2} />
             </div>
           </div>
-          <div className="yellow">
+          {/* <div className="yellow">
             <div className="location">
               <span>{serviceData[0].shortFormStartLocation}</span>
               <span>{serviceData[0].shortFormEndLocation}</span>
@@ -248,9 +248,9 @@ const Services = () => {
               );
             })}
 
-          </div>
+          </div> */}
         </div>
-        <div className="service-model" key={data[1].id} id={data[1].id}>
+        {/* <div className="service-model" key={data[1].id} id={data[1].id}>
           <h2>{serviceData[1].title}</h2>
           <div className="directionArrow">
             <img src={booknow}></img>
@@ -437,7 +437,7 @@ const Services = () => {
             })}
 
           </div>
-        </div>
+        </div> */}
       </div>
     </div> : null
   );

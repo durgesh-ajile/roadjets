@@ -21,73 +21,11 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import axios from "axios";
 import { FormHelperText } from "@mui/material";
+import Datepicker from "../../Components/Datepicker/DatePicker";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
-
-const timeData = [
-    {
-        time: "5:00 AM",
-        car: "Tata Tigor EV",
-        model: "4 seater - Sedan",
-        left: "3",
-    },
-    {
-        time: "6:00 AM",
-        car: "Tata Tigor EV",
-        model: "4 seater - Sedan",
-        left: "4",
-    },
-    {
-        time: "9:00 AM",
-        car: "Tata Tigor EV",
-        model: "4 seater - Sedan",
-        left: "2",
-    },
-    {
-        time: "11:00 AM",
-        car: "Tata Tigor EV",
-        model: "4 seater - Sedan",
-        left: "2",
-    },
-    {
-        time: "2:30 PM",
-        car: "Tata Tigor EV",
-        model: "4 seater - Sedan",
-        left: "1",
-    },
-    {
-        time: "5:00 PM",
-        car: "Tata Tigor EV",
-        model: "4 seater - Sedan",
-        left: "1",
-    },
-    {
-        time: "6:00 PM",
-        car: "Tata Tigor EV",
-        model: "4 seater - Sedan",
-        left: "4",
-    },
-    {
-        time: "9:00 PM",
-        car: "Tata Tigor EV",
-        model: "4 seater - Sedan",
-        left: "2",
-    },
-    {
-        time: "10:00 PM",
-        car: "Tata Tigor EV",
-        model: "4 seater - Sedan",
-        left: "0",
-    },
-    {
-        time: "11:00 PM",
-        car: "Tata Tigor EV",
-        model: "4 seater - Sedan",
-        left: "1",
-    },
-];
 
 const tourData = {
     id: 1,
@@ -155,14 +93,16 @@ const allRides = [
 ];
 
 const Book = () => {
-    const [bookDate, setBookDate] = useState(() => {
-        let today = new Date();
-        let dd = String(today.getDate()).padStart(2, '0');
-        let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-        let yyyy = today.getFullYear();
+    const [bookDate, setBookDate] = useState(
+    //     () => {
+    //     let today = new Date();
+    //     let dd = String(today.getDate()).padStart(2, '0');
+    //     let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    //     let yyyy = today.getFullYear();
 
-        return today = yyyy + '-' + mm + '-' + dd;
-    });
+    //     return today = yyyy + '-' + mm + '-' + dd;
+    // }
+);
     const [location, setLocation] = React.useState("Select");
     const [open, setOpen] = React.useState(false);
     const [open2, setOpen2] = React.useState(false);
@@ -313,6 +253,8 @@ const Book = () => {
         }
     }, [routeData, location]);
 
+    console.log(routeData)
+
     const handleInputChange = (event, index, field) => {
         const newPassengerDetails = [...passengerDetails];
         newPassengerDetails[index] = {
@@ -448,7 +390,7 @@ const Book = () => {
         }
         return fields;
     };
-    console.log(filteredData)
+
 
     return (
         <div className="book">
@@ -519,13 +461,13 @@ const Book = () => {
                         <MenuItem value="WGL-HYD(Rai-Durg Metero)">
                             Warangal to Hyderabad(Rai-Durg Metero)
                         </MenuItem>
-                        <MenuItem value="HYD(UPPAL)-WGL">
+                        {/* <MenuItem value="HYD(UPPAL)-WGL">
                             Hyderabad (Uppal) - Warangal
                         </MenuItem>
                         <MenuItem value="WGL-HYD(UPPAL)">
                             Warangal to Hyderabad (Uppal)
-                        </MenuItem>
-                        <MenuItem value="HYD-KNR">
+                        </MenuItem> */}
+                        {/* <MenuItem value="HYD-KNR">
                             Hyderabad(Gachibowli circle) - Karimnagar
                         </MenuItem>
                         <MenuItem value="KNR-HYD">
@@ -536,7 +478,7 @@ const Book = () => {
                         </MenuItem>
                         <MenuItem value="KHM-HYD">
                             Kammam to Hyderabad(Gachibowli circle)
-                        </MenuItem>
+                        </MenuItem> */}
                     </Select>
                 </div>
                 <div className="choose-date">
@@ -544,7 +486,7 @@ const Book = () => {
                         <InputLabel id="demo-simple-select-autowidth-label">
                             Date of journey
                         </InputLabel>
-                        <TextField
+                        {/* <TextField
                             id="filled-helperText"
                             // label="Date"
                             InputLabelProps={{
@@ -558,7 +500,8 @@ const Book = () => {
                             onChange={(e) => {
                                 setBookDate(e.target.value);
                             }}
-                        />
+                        /> */}
+                        <Datepicker bookDate={bookDate} setBookDate={setBookDate}/>
                     </div>
                     <div>
                         <InputLabel id="demo-simple-select-autowidth-label">
@@ -587,7 +530,7 @@ const Book = () => {
                 </div>
             </div>
 
-            {!loading && filteredData ? (
+            {/* {!loading && filteredData ? (
                 <div className="choose-cab">
                     <div className="yellow">
                         <div className="location">
@@ -624,7 +567,7 @@ const Book = () => {
                         })}
                     </div>
                 </div>
-            ) : null}
+            ) : null} */}
             <Dialog
                 fullScreen
                 open={open}

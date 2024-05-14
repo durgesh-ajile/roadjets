@@ -39,13 +39,13 @@
     align-items: flex-end;
     justify-content: space-between;
 }
-.choose-date Button{
+/* .choose-date Button{
     width: 270px;
     height: 55px;
     font-size: 18px;
     background: #f18854;
     color: #000000;
-}
+} */
 .choose-date Button:hover{
     background-color: #f18854;
 }
