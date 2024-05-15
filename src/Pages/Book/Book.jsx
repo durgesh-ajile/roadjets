@@ -121,7 +121,7 @@ const Book = () => {
     const [pick, setPick] = useState("");
     const [drop, setDrop] = useState("");
     const [seatAvl, setSeatAvl] = useState(null);
-    const [finalTiming, setFinalTiming] = useState(null);
+    const [finalTiming, setFinalTiming] = useState('choosedate');
 
     const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 
@@ -273,8 +273,11 @@ const Book = () => {
                     booking = bookingTiming[0][x]
                 }
             }
-
-            setFinalTiming(booking)
+            if(booking){
+                setFinalTiming(booking)
+            }else{
+                setFinalTiming(null)
+            } 
         }
     }, [bookDate, bookingTiming])
 
@@ -566,7 +569,8 @@ const Book = () => {
                     </div>
                     <div className="yellow2">{filteredData[0]?.routeOne === location ? filteredData[0]?.title : filteredData[0]?.returnRoute} - Timings:</div>
                     <div className="time-box">
-                        {finalTiming?.map((data) => {
+                        {finalTiming === 'choosedate' ? <div style={{color:"red"}}>Please select date</div> :
+                       finalTiming === null ? <div style={{color:"red"}}>No cars available for selected date</div> : finalTiming?.map((data) => {
                             return (
                                 <div
                                     className="solo-time"
