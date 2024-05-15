@@ -257,7 +257,7 @@ const Book = () => {
     }, [routeData, location]);
 
     console.log(routeData)
-    console.log(typeof bookingTiming[0])
+    console.log(location)
 
     
     useEffect(() => {
@@ -529,7 +529,7 @@ const Book = () => {
                                 setBookDate(e.target.value);
                             }}
                         /> */}
-                        <Datepicker bookDate={bookDate} setBookDate={setBookDate}/>
+                        <Datepicker bookDate={bookDate} setBookDate={setBookDate} location={location}/>
                     </div>
                     <div>
                         <InputLabel id="demo-simple-select-autowidth-label">
