@@ -16,7 +16,7 @@ export default function Datepicker({bookDate, setBookDate}) {
       selected={bookDate} 
       onChange={(date) => setBookDate(date)} 
     //   dateFormat="D/M/YYYY"
-    filterDate={isWeekday}
+    // filterDate={isWeekday}
       />
     </div>
   );

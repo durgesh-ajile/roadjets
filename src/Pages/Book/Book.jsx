@@ -43,12 +43,12 @@ const allRides = [
         ride1: {
             from: "Hyderabad(Rai-Durg Metero)",
             to: "Warangal",
-            code: "HYD(Rai-Durg Metero)-WGL",
+            code: "MD(Rai-Durg Metero)-WGL",
         },
         ride2: {
             from: "Warangal",
             to: "Hyderabad(Rai-Durg Metero)",
-            code: "WGL-HYD(Rai-Durg Metero)",
+            code: "WGL-MD(Rai-Durg Metero)",
         },
     },
     {
@@ -121,6 +121,9 @@ const Book = () => {
     const [pick, setPick] = useState("");
     const [drop, setDrop] = useState("");
     const [seatAvl, setSeatAvl] = useState(null);
+    const [finalTiming, setFinalTiming] = useState(null);
+
+    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 
     const getRouteData = async () => {
         try {
@@ -206,7 +209,7 @@ const Book = () => {
             });
         }
 
-        // handleClickOpen();
+        handleClickOpen();
     };
 
     const scrollToTop = () => {
@@ -254,6 +257,28 @@ const Book = () => {
     }, [routeData, location]);
 
     console.log(routeData)
+    console.log(typeof bookingTiming[0])
+
+    
+    useEffect(() => {
+        if(bookDate && bookingTiming){
+            let booking = ''
+
+            // let timings = booking.find((val) => {
+            //     return val === daysOfWeek[bookDate.getDay()]
+            // })
+            // console.log(timings)
+            for(let x in bookingTiming[0]){
+                if(x === daysOfWeek[bookDate.getDay()]){
+                    booking = bookingTiming[0][x]
+                }
+            }
+
+            setFinalTiming(booking)
+        }
+    }, [bookDate, bookingTiming])
+
+    console.log(finalTiming)
 
     const handleInputChange = (event, index, field) => {
         const newPassengerDetails = [...passengerDetails];
@@ -455,11 +480,11 @@ const Book = () => {
                         <MenuItem value="Select">
                             <em>Select</em>
                         </MenuItem>
-                        <MenuItem value="HYD(Rai-Durg Metero)-WGL">
-                            Hyderabad(Rai-Durg Metero) to Warangal
+                        <MenuItem value="MD(Rai-Durg Metero)-WGL">
+                            Mindspace(Rai-Durg Metero) to Warangal
                         </MenuItem>
-                        <MenuItem value="WGL-HYD(Rai-Durg Metero)">
-                            Warangal to Hyderabad(Rai-Durg Metero)
+                        <MenuItem value="WGL-MD(Rai-Durg Metero)">
+                            Warangal to Mindspace(Rai-Durg Metero)
                         </MenuItem>
                         {/* <MenuItem value="HYD(UPPAL)-WGL">
                             Hyderabad (Uppal) - Warangal
@@ -530,7 +555,7 @@ const Book = () => {
                 </div>
             </div>
 
-            {/* {!loading && filteredData ? (
+            {!loading && filteredData ? (
                 <div className="choose-cab">
                     <div className="yellow">
                         <div className="location">
@@ -541,7 +566,7 @@ const Book = () => {
                     </div>
                     <div className="yellow2">{filteredData[0]?.routeOne === location ? filteredData[0]?.title : filteredData[0]?.returnRoute} - Timings:</div>
                     <div className="time-box">
-                        {bookingTiming?.map((data) => {
+                        {finalTiming?.map((data) => {
                             return (
                                 <div
                                     className="solo-time"
@@ -567,7 +592,7 @@ const Book = () => {
                         })}
                     </div>
                 </div>
-            ) : null} */}
+            ) : null}
             <Dialog
                 fullScreen
                 open={open}

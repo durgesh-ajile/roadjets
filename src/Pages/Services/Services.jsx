@@ -214,14 +214,14 @@ const Services = () => {
               <img src={data[0].img2} />
             </div>
           </div>
-          {/* <div className="yellow">
+          <div className="yellow">
             <div className="location">
               <span>{serviceData[0].shortFormStartLocation}</span>
               <span>{serviceData[0].shortFormEndLocation}</span>
             </div>
             <div className="time">{serviceData[0].shortDescription}</div>
           </div>
-          <div className="yellow2">{serviceData[0].title} - Timings: </div>
+          {/* <div className="yellow2">{serviceData[0].title} - Timings: </div>
           <div className="time-box" >
             {serviceData[0].pickUpTiming.map((data) => {
               return (
