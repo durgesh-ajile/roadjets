@@ -741,7 +741,7 @@ const Book = () => {
                         <Button
                             variant="contained"
                             onClick={(e) => {
-                                checkoutHandler(e, filteredData[0]?.price);
+                                // checkoutHandler(e, filteredData[0]?.price);
                             }}
                         >
                             Proceed to payment
